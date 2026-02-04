@@ -844,9 +844,9 @@
                 ? productos 
                 : productos.filter(p => {
                     const search = searchTerm.toLowerCase();
-                    const clave = (p.Clave || '').toLowerCase();
-                    const color = (p.Color || '').toLowerCase();
-                    const resina = (p.Resina || '').toLowerCase();
+                    const clave = String(p.Clave || '').toLowerCase();
+                    const color = String(p.Color || '').toLowerCase();
+                    const resina = String(p.Resina || '').toLowerCase();
                     return clave.includes(search) || color.includes(search) || resina.includes(search);
                 });
 
