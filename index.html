@@ -610,13 +610,21 @@
 
             // Cargar catálogo de productos
             useEffect(() => {
-                fetch('productos_catalogo.json')
-                    .then(res => res.json())
-                    .then(data => setProductos(data))
-                    .catch(err => {
-                        console.log('productos_catalogo.json no disponible');
+                const loadProductos = async () => {
+                    try {
+                        const response = await fetch('./productos_catalogo.json');
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
+                        const data = await response.json();
+                        setProductos(data);
+                        console.log(`✅ Cargados ${data.length} productos del catálogo`);
+                    } catch (err) {
+                        console.error('❌ Error cargando productos_catalogo.json:', err);
                         setProductos([]);
-                    });
+                    }
+                };
+                loadProductos();
             }, []);
 
             // Cargar configuración del localStorage
