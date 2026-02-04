@@ -835,9 +835,9 @@
             }, [selectedCliente]);
 
             const filteredClientes = clientes.filter(c =>
-                (c.nombre && c.nombre.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                (c.sector && c.sector.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                (c.zona && c.zona.toLowerCase().includes(searchTerm.toLowerCase()))
+                (c.nombre && String(c.nombre).toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (c.sector && String(c.sector).toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (c.zona && String(c.zona).toLowerCase().includes(searchTerm.toLowerCase()))
             );
 
             const filteredProductos = searchTerm.trim() === '' 
