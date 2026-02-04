@@ -612,13 +612,16 @@
             useEffect(() => {
                 const loadProductos = async () => {
                     try {
+                        console.log('🔄 Intentando cargar productos_catalogo.json...');
                         const response = await fetch('./productos_catalogo.json');
                         if (!response.ok) {
                             throw new Error(`HTTP ${response.status}`);
                         }
                         const data = await response.json();
+                        console.log(`📦 Datos recibidos: ${data.length} productos`);
                         setProductos(data);
                         console.log(`✅ Cargados ${data.length} productos del catálogo`);
+                        console.log('📊 Primeros 3 productos:', data.slice(0, 3));
                     } catch (err) {
                         console.error('❌ Error cargando productos_catalogo.json:', err);
                         setProductos([]);
@@ -837,11 +840,13 @@
                 (c.zona && c.zona.toLowerCase().includes(searchTerm.toLowerCase()))
             );
 
-            const filteredProductos = productos.filter(p =>
-                (p.Clave && p.Clave.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                (p.Color && p.Color.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                (p.Resina && p.Resina.toLowerCase().includes(searchTerm.toLowerCase()))
-            );
+            const filteredProductos = searchTerm.trim() === '' 
+                ? productos 
+                : productos.filter(p =>
+                    (p.Clave && p.Clave.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                    (p.Color && p.Color.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                    (p.Resina && p.Resina.toLowerCase().includes(searchTerm.toLowerCase()))
+                );
 
             if (!isConfigured) {
                 return (
