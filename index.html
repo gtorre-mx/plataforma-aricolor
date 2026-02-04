@@ -842,11 +842,13 @@
 
             const filteredProductos = searchTerm.trim() === '' 
                 ? productos 
-                : productos.filter(p =>
-                    (p.Clave && p.Clave.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                    (p.Color && p.Color.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                    (p.Resina && p.Resina.toLowerCase().includes(searchTerm.toLowerCase()))
-                );
+                : productos.filter(p => {
+                    const search = searchTerm.toLowerCase();
+                    const clave = (p.Clave || '').toLowerCase();
+                    const color = (p.Color || '').toLowerCase();
+                    const resina = (p.Resina || '').toLowerCase();
+                    return clave.includes(search) || color.includes(search) || resina.includes(search);
+                });
 
             if (!isConfigured) {
                 return (
