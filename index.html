@@ -740,7 +740,7 @@
                         if (values.length < 7) continue;
 
                         const productos = [];
-                        for (let j = 7; j < values.length; j += 2) {
+                        for (let j = 6; j < values.length; j += 2) {
                             const productoNombre = values[j]?.replace(/^["']|["']$/g, '').trim();
                             const productoPrecio = values[j+1]?.replace(/^["']|["']$/g, '').trim();
                             
@@ -757,11 +757,11 @@
 
                         clientesData.push({
                             nombre: nombreCliente,
-                            asana: values[2]?.replace(/^["']|["']$/g, '').trim() || '',
-                            sector: values[3]?.replace(/^["']|["']$/g, '').trim() || '',
-                            status: values[4]?.replace(/^["']|["']$/g, '').trim() || '',
-                            responsable: values[5]?.replace(/^["']|["']$/g, '').trim() || '',
-                            zona: values[6]?.replace(/^["']|["']$/g, '').trim() || '',
+                            asana: values[1]?.replace(/^["']|["']$/g, '').trim() || '',
+                            sector: values[2]?.replace(/^["']|["']$/g, '').trim() || '',
+                            status: values[3]?.replace(/^["']|["']$/g, '').trim() || '',
+                            responsable: values[4]?.replace(/^["']|["']$/g, '').trim() || '',
+                            zona: values[5]?.replace(/^["']|["']$/g, '').trim() || '',
                             productos: productos
                         });
                     }
