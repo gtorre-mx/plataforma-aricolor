@@ -741,8 +741,8 @@
 
                         const productos = [];
                         for (let j = 7; j < values.length; j += 2) {
-                            const productoPrecio = values[j]?.replace(/^["']|["']$/g, '').trim();
-                            const productoNombre = values[j+1]?.replace(/^["']|["']$/g, '').trim();
+                            const productoNombre = values[j]?.replace(/^["']|["']$/g, '').trim();
+                            const productoPrecio = values[j+1]?.replace(/^["']|["']$/g, '').trim();
                             
                             if (productoNombre && productoPrecio && productoNombre !== 'x' && productoNombre !== '') {
                                 productos.push({
