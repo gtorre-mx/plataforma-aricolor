@@ -832,15 +832,15 @@
             }, [selectedCliente]);
 
             const filteredClientes = clientes.filter(c =>
-                c.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                c.sector.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                c.zona.toLowerCase().includes(searchTerm.toLowerCase())
+                (c.nombre && c.nombre.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (c.sector && c.sector.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (c.zona && c.zona.toLowerCase().includes(searchTerm.toLowerCase()))
             );
 
             const filteredProductos = productos.filter(p =>
-                p.Clave.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                p.Color.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                p.Resina.toLowerCase().includes(searchTerm.toLowerCase())
+                (p.Clave && p.Clave.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (p.Color && p.Color.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (p.Resina && p.Resina.toLowerCase().includes(searchTerm.toLowerCase()))
             );
 
             if (!isConfigured) {
@@ -949,7 +949,7 @@
                                 </div>
                                 <div className="info-row">
                                     <span className="info-label">📊 Status:</span>
-                                    <span className={`status-badge ${selectedCliente.status.toLowerCase().includes('activo') ? 'status-activo' : 'status-inactivo'}`}>
+                                    <span className={`status-badge ${selectedCliente.status && selectedCliente.status.toLowerCase().includes('activo') ? 'status-activo' : 'status-inactivo'}`}>
                                         {selectedCliente.status}
                                     </span>
                                 </div>
@@ -1046,7 +1046,7 @@
                                                 <span>{cliente.productos.length}</span>
                                             </div>
                                             <div style={{marginTop: '0.75rem'}}>
-                                                <span className={`status-badge ${cliente.status.toLowerCase().includes('activo') ? 'status-activo' : 'status-inactivo'}`}>
+                                                <span className={`status-badge ${cliente.status && cliente.status.toLowerCase().includes('activo') ? 'status-activo' : 'status-inactivo'}`}>
                                                     {cliente.status}
                                                 </span>
                                             </div>
