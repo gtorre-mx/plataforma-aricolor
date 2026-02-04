@@ -740,9 +740,12 @@
                         if (values.length < 7) continue;
 
                         const productos = [];
+                        // Productos en columnas G,I,K,M,O... (6,8,10,12,14...)
+                        // Precios AUX en columnas BO,BP,BQ... (67,68,69...)
+                        let precioAuxIndex = 67; // Columna BO
                         for (let j = 6; j < values.length; j += 2) {
                             const productoNombre = values[j]?.replace(/^["']|["']$/g, '').trim();
-                            const productoPrecio = values[j+1]?.replace(/^["']|["']$/g, '').trim();
+                            const productoPrecio = values[precioAuxIndex]?.replace(/^["']|["']$/g, '').trim();
                             
                             if (productoNombre && productoPrecio && productoNombre !== 'x' && productoNombre !== '') {
                                 productos.push({
@@ -750,6 +753,7 @@
                                     precio: productoPrecio
                                 });
                             }
+                            precioAuxIndex++; // Siguiente precio auxiliar (BP, BQ, BR...)
                         }
 
                         const nombreCliente = values[0]?.replace(/^["']|["']$/g, '').trim();
@@ -1355,15 +1359,4 @@
                         {activeTab === 'clientes' && renderClientes()}
                         {activeTab === 'productos' && renderProductos()}
                         {activeTab === 'mercado' && renderMercado()}
-                        {activeTab === 'busqueda' && renderBusquedaIA()}
-                        {activeTab === 'config' && renderConfiguracion()}
-                    </div>
-                </div>
-            );
-        }
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-</body>
-</html>
+                        {activeTab 
