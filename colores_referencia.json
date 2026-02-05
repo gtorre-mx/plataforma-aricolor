@@ -1,0 +1,1228 @@
+{
+  "MB AM-1024-10": {
+    "pantone": "10065",
+    "hex": "F3EC7A",
+    "claves_relacionadas": [
+      "MB AM-1024-10"
+    ]
+  },
+  "D21-005": {
+    "pantone": "101",
+    "hex": "F5EC5A",
+    "claves_relacionadas": [
+      "D21-005",
+      "MB AM-1223-10"
+    ]
+  },
+  "MB AM-1223-10": {
+    "pantone": "101",
+    "hex": "F5EC5A",
+    "claves_relacionadas": [
+      "D21-005",
+      "MB AM-1223-10"
+    ]
+  },
+  "MB AM-1629-10": {
+    "pantone": "102",
+    "hex": "FAE700",
+    "claves_relacionadas": [
+      "MB AM-1629-10",
+      "MB AM-1756-10"
+    ]
+  },
+  "MB AM-1756-10": {
+    "pantone": "102",
+    "hex": "FAE700",
+    "claves_relacionadas": [
+      "MB AM-1629-10",
+      "MB AM-1756-10"
+    ]
+  },
+  "D20-083": {
+    "pantone": "Yellow",
+    "hex": "FEDF00",
+    "claves_relacionadas": [
+      "D20-083",
+      "P AM-0654-PO"
+    ]
+  },
+  "P AM-0654-PO": {
+    "pantone": "Yellow",
+    "hex": "FEDF00",
+    "claves_relacionadas": [
+      "D20-083",
+      "P AM-0654-PO"
+    ]
+  },
+  "D20-209": {
+    "pantone": "115",
+    "hex": "FADC41",
+    "claves_relacionadas": [
+      "D20-209"
+    ]
+  },
+  "MB AM-1748-10": {
+    "pantone": "116",
+    "hex": "FECB00",
+    "claves_relacionadas": [
+      "MB AM-1748-10"
+    ]
+  },
+  "MB AM-1376-10": {
+    "pantone": "120",
+    "hex": "F8DE6E",
+    "claves_relacionadas": [
+      "MB AM-1376-10"
+    ]
+  },
+  "MB AM-1193-10": {
+    "pantone": "121",
+    "hex": "FADA63",
+    "claves_relacionadas": [
+      "MB AM-1193-10"
+    ]
+  },
+  "MB AM 2173-10": {
+    "pantone": "122",
+    "hex": "FCD450",
+    "claves_relacionadas": [
+      "MB AM 2173-10"
+    ]
+  },
+  "MB AM-1567-10": {
+    "pantone": "1235",
+    "hex": "FFB612",
+    "claves_relacionadas": [
+      "MB AM-1567-10"
+    ]
+  },
+  "D18-193": {
+    "pantone": "12-0727 TPX",
+    "hex": "FDE182",
+    "claves_relacionadas": [
+      "D18-193"
+    ]
+  },
+  "MB AM-1657-10": {
+    "pantone": "137",
+    "hex": "FFA100",
+    "claves_relacionadas": [
+      "MB AM-1657-10"
+    ]
+  },
+  "MB NR-1730-10": {
+    "pantone": "150",
+    "hex": "FFA952",
+    "claves_relacionadas": [
+      "MB NR-1730-10"
+    ]
+  },
+  "MB NR-1605-10": {
+    "pantone": "1495",
+    "hex": "FF9133",
+    "claves_relacionadas": [
+      "MB NR-1605-10"
+    ]
+  },
+  "MB NR-2123-10": {
+    "pantone": "1505",
+    "hex": "FF6E00",
+    "claves_relacionadas": [
+      "MB NR-2123-10"
+    ]
+  },
+  "D19-088": {
+    "pantone": "158",
+    "hex": "E37222",
+    "claves_relacionadas": [
+      "D19-088"
+    ]
+  },
+  "MB BG-2121-4A": {
+    "pantone": "1555",
+    "hex": "FFAA7B",
+    "claves_relacionadas": [
+      "MB BG-2121-4A"
+    ]
+  },
+  "MB NR-2250-10": {
+    "pantone": "1575",
+    "hex": "FF6D22",
+    "claves_relacionadas": [
+      "MB NR-2250-10"
+    ]
+  },
+  "D19-088E": {
+    "pantone": "1585",
+    "hex": "D55C19",
+    "claves_relacionadas": [
+      "D19-088E"
+    ]
+  },
+  "MB NR-1665-10": {
+    "pantone": "163",
+    "hex": "FF7F45",
+    "claves_relacionadas": [
+      "MB NR-1665-10"
+    ]
+  },
+  "D19-089 MB NR-1591-10": {
+    "pantone": "165",
+    "hex": "E05206",
+    "claves_relacionadas": [
+      "D19-089 MB NR-1591-10"
+    ]
+  },
+  "MB NR 2356-12": {
+    "pantone": "166",
+    "hex": "BD4F19",
+    "claves_relacionadas": [
+      "MB NR 2356-12"
+    ]
+  },
+  "MB RS-1914-10": {
+    "pantone": "1625",
+    "hex": "FF8F70",
+    "claves_relacionadas": [
+      "MB RS-1914-10"
+    ]
+  },
+  "MB NR-1152-10": {
+    "pantone": "1665",
+    "hex": "DD4814",
+    "claves_relacionadas": [
+      "MB NR-1152-10",
+      "MB NR 2345-12"
+    ]
+  },
+  "MB NR 2345-12": {
+    "pantone": "1665",
+    "hex": "DD4814",
+    "claves_relacionadas": [
+      "MB NR-1152-10",
+      "MB NR 2345-12"
+    ]
+  },
+  "MB NR 2001-12": {
+    "pantone": "172",
+    "hex": "F9461C",
+    "claves_relacionadas": [
+      "MB NR 2001-12"
+    ]
+  },
+  "MB RS-2025-10": {
+    "pantone": "1785",
+    "hex": "F8485E",
+    "claves_relacionadas": [
+      "MB RS-2025-10"
+    ]
+  },
+  "MB RJ 1351-10": {
+    "pantone": "1795",
+    "hex": "CD202C",
+    "claves_relacionadas": [
+      "MB RJ 1351-10"
+    ]
+  },
+  "D23-168": {
+    "pantone": "185",
+    "hex": "E00034",
+    "claves_relacionadas": [
+      "D23-168"
+    ]
+  },
+  "MB RJ 1500-10": {
+    "pantone": "186",
+    "hex": "C60C30",
+    "claves_relacionadas": [
+      "MB RJ 1500-10"
+    ]
+  },
+  "MB RJ-1835-10": {
+    "pantone": "187",
+    "hex": "A71930",
+    "claves_relacionadas": [
+      "MB RJ-1835-10",
+      "MB RJ-1726-10"
+    ]
+  },
+  "MB RJ-1726-10": {
+    "pantone": "187",
+    "hex": "A71930",
+    "claves_relacionadas": [
+      "MB RJ-1835-10",
+      "MB RJ-1726-10"
+    ]
+  },
+  "MB RS-1266-12": {
+    "pantone": "1915",
+    "hex": "#ef4a81",
+    "claves_relacionadas": [
+      "MB RS-1266-12"
+    ]
+  },
+  "D19-181B": {
+    "pantone": "2337",
+    "hex": "F8C1B8",
+    "claves_relacionadas": [
+      "D19-181B"
+    ]
+  },
+  "D20-174": {
+    "pantone": "200",
+    "hex": "B71234",
+    "claves_relacionadas": [
+      "D20-174",
+      "MB-RJ-2136-10",
+      "MB-RJ-1409-30"
+    ]
+  },
+  "MB-RJ-2136-10": {
+    "pantone": "200",
+    "hex": "B71234",
+    "claves_relacionadas": [
+      "D20-174",
+      "MB-RJ-2136-10",
+      "MB-RJ-1409-30"
+    ]
+  },
+  "MB-RJ-1409-30": {
+    "pantone": "200",
+    "hex": "B71234",
+    "claves_relacionadas": [
+      "D20-174",
+      "MB-RJ-2136-10",
+      "MB-RJ-1409-30"
+    ]
+  },
+  "MB RJ-1637-10": {
+    "pantone": "207",
+    "hex": "A70240",
+    "claves_relacionadas": [
+      "MB RJ-1637-10",
+      "MB RJ-1996-10"
+    ]
+  },
+  "MB RJ-1996-10": {
+    "pantone": "207",
+    "hex": "A70240",
+    "claves_relacionadas": [
+      "MB RJ-1637-10",
+      "MB RJ-1996-10"
+    ]
+  },
+  "MB RS-2164-10": {
+    "pantone": "211",
+    "hex": "F77AB4",
+    "claves_relacionadas": [
+      "MB RS-2164-10",
+      "D19-136D"
+    ]
+  },
+  "D19-136D": {
+    "pantone": "211",
+    "hex": "F77AB4",
+    "claves_relacionadas": [
+      "MB RS-2164-10",
+      "D19-136D"
+    ]
+  },
+  "MB RS-2215-14": {
+    "pantone": "212",
+    "hex": "F04E98",
+    "claves_relacionadas": [
+      "MB RS-2215-14"
+    ]
+  },
+  "MB RS-1489-10": {
+    "pantone": "215",
+    "hex": "AC145A",
+    "claves_relacionadas": [
+      "MB RS-1489-10"
+    ]
+  },
+  "MB RS-2084-14": {
+    "pantone": "225",
+    "hex": "DF1995",
+    "claves_relacionadas": [
+      "MB RS-2084-14"
+    ]
+  },
+  "MB RS-1993-14": {
+    "pantone": "233",
+    "hex": "C50084",
+    "claves_relacionadas": [
+      "MB RS-1993-14"
+    ]
+  },
+  "MB RS-2221-14": {
+    "pantone": "240",
+    "hex": "BF2296",
+    "claves_relacionadas": [
+      "MB RS-2221-14"
+    ]
+  },
+  "D21-043B": {
+    "pantone": "2002",
+    "hex": "#f9e27",
+    "claves_relacionadas": [
+      "D21-043B"
+    ]
+  },
+  "MB AM-1455-12": {
+    "pantone": "2010",
+    "hex": "#FFB20F",
+    "claves_relacionadas": [
+      "MB AM-1455-12"
+    ]
+  },
+  "MB AM-1707-EA": {
+    "pantone": "2011",
+    "hex": "#ED9B33",
+    "claves_relacionadas": [
+      "MB AM-1707-EA"
+    ]
+  },
+  "MB AM-2043-4A": {
+    "pantone": "2013",
+    "hex": "#FF9800",
+    "claves_relacionadas": [
+      "MB AM-2043-4A"
+    ]
+  },
+  "MB VT-1936-10": {
+    "pantone": "513",
+    "hex": "8E258D",
+    "claves_relacionadas": [
+      "MB VT-1936-10"
+    ]
+  },
+  "MB AZ-1391-T4": {
+    "pantone": "2171",
+    "hex": "#489FDF",
+    "claves_relacionadas": [
+      "MB AZ-1391-T4"
+    ]
+  },
+  "MB AZ-2232-10": {
+    "pantone": "2174",
+    "hex": "#0076CE.",
+    "claves_relacionadas": [
+      "MB AZ-2232-10"
+    ]
+  },
+  "MB AZ-1429-10": {
+    "pantone": "2184",
+    "hex": "#0084D4",
+    "claves_relacionadas": [
+      "MB AZ-1429-10",
+      "MB AZ-1314-10"
+    ]
+  },
+  "MB AZ-1314-10": {
+    "pantone": "3005",
+    "hex": "007AC9",
+    "claves_relacionadas": [
+      "MB AZ-1314-10"
+    ]
+  },
+  "MB AZ-1800-10": {
+    "pantone": "2191",
+    "hex": "#00A3E1",
+    "claves_relacionadas": [
+      "MB AZ-1800-10",
+      "MB AZ-1663-10"
+    ]
+  },
+  "MB AZ-1663-10": {
+    "pantone": "2191",
+    "hex": "#00A3E1",
+    "claves_relacionadas": [
+      "MB AZ-1800-10",
+      "MB AZ-1663-10"
+    ]
+  },
+  "MB AZ-2051-B0": {
+    "pantone": "2194",
+    "hex": "#0086d6",
+    "claves_relacionadas": [
+      "MB AZ-2051-B0",
+      "MB AZ 1429-10"
+    ]
+  },
+  "MB -VT-1590-10": {
+    "pantone": "2088",
+    "hex": "#825DC7",
+    "claves_relacionadas": [
+      "MB -VT-1590-10"
+    ]
+  },
+  "MB -VT-1590-11": {
+    "pantone": "2089",
+    "hex": "#7248BD.",
+    "claves_relacionadas": [
+      "MB -VT-1590-11"
+    ]
+  },
+  "MB AZ 1429-10": {
+    "pantone": "2194",
+    "hex": "#0086d6",
+    "claves_relacionadas": [
+      "MB AZ-2051-B0",
+      "MB AZ 1429-10"
+    ]
+  },
+  "MB AZ-2064-10": {
+    "pantone": "2196",
+    "hex": "#0069B1",
+    "claves_relacionadas": [
+      "MB AZ-2064-10"
+    ]
+  },
+  "MB VR-2031-10": {
+    "pantone": "2271",
+    "hex": "00BB31",
+    "claves_relacionadas": [
+      "MB VR-2031-10"
+    ]
+  },
+  "MB VR 2310-10": {
+    "pantone": "2270",
+    "hex": "#2cc84d",
+    "claves_relacionadas": [
+      "MB VR-2031-10",
+      "MB VR 2310-10",
+      "MB VR 2224-10"
+    ]
+  },
+  "MB VR 2224-10": {
+    "pantone": "2270",
+    "hex": "#2cc84d",
+    "claves_relacionadas": [
+      "MB VR-2031-10",
+      "MB VR 2310-10",
+      "MB VR 2224-10"
+    ]
+  },
+  "MB VR-2264-10": {
+    "pantone": "2400",
+    "hex": "00B097",
+    "claves_relacionadas": [
+      "MB VR-2264-10"
+    ]
+  },
+  "MB VR-0647-12": {
+    "pantone": "356",
+    "hex": "007934",
+    "claves_relacionadas": [
+      "MB VR-1643-10",
+      "MB VR-0647-12"
+    ]
+  },
+  "MB RS-1925-10": {
+    "pantone": "250",
+    "hex": "E7C1E3",
+    "claves_relacionadas": [
+      "MB RS-1925-10"
+    ]
+  },
+  "MB VT-1719-14": {
+    "pantone": "259",
+    "hex": "6E267B",
+    "claves_relacionadas": [
+      "MB VT-1719-14"
+    ]
+  },
+  "MB RS-2056-10": {
+    "pantone": "2365",
+    "hex": "#EFC5E5.",
+    "claves_relacionadas": [
+      "MB RS-2056-10"
+    ]
+  },
+  "650": {
+    "pantone": "2602",
+    "hex": "7C109A",
+    "claves_relacionadas": [
+      "650"
+    ]
+  },
+  "MB VT-1733-10": {
+    "pantone": "2617",
+    "hex": "490E6F",
+    "claves_relacionadas": [
+      "MB VT-1733-10"
+    ]
+  },
+  "D20-010L": {
+    "pantone": "265",
+    "hex": "8C6CD0",
+    "claves_relacionadas": [
+      "D20-010L",
+      "D19-223A"
+    ]
+  },
+  "D19-223A": {
+    "pantone": "265",
+    "hex": "8C6CD0",
+    "claves_relacionadas": [
+      "D20-010L",
+      "D19-223A"
+    ]
+  },
+  "MB VT-1755-10": {
+    "pantone": "2685",
+    "hex": "3B0083",
+    "claves_relacionadas": [
+      "MB VT-1755-10"
+    ]
+  },
+  "MB VT-1343-B0": {
+    "pantone": "273",
+    "hex": "241773",
+    "claves_relacionadas": [
+      "MB VT-1343-B0"
+    ]
+  },
+  "MB-AZ-1953-10": {
+    "pantone": "2736",
+    "hex": "2526A9",
+    "claves_relacionadas": [
+      "MB-AZ-1953-10",
+      "MB AZ 0552-10"
+    ]
+  },
+  "MB AZ 0552-10": {
+    "pantone": "2736",
+    "hex": "2526A9",
+    "claves_relacionadas": [
+      "MB-AZ-1953-10",
+      "MB AZ 0552-10"
+    ]
+  },
+  "D20-051": {
+    "pantone": "296",
+    "hex": "031E2F",
+    "claves_relacionadas": [
+      "D20-051"
+    ]
+  },
+  "D20-113": {
+    "pantone": "2718",
+    "hex": "5A85D7",
+    "claves_relacionadas": [
+      "D20-113"
+    ]
+  },
+  "MB AZ-1385-10": {
+    "pantone": "2728",
+    "hex": "0F4DBC",
+    "claves_relacionadas": [
+      "MB AZ-1385-10"
+    ]
+  },
+  "MB AZ-1304-10": {
+    "pantone": "2756",
+    "hex": "151F6D",
+    "claves_relacionadas": [
+      "MB AZ-1304-10"
+    ]
+  },
+  "MB-AZ-1967-10": {
+    "pantone": "279",
+    "hex": "4B92DB",
+    "claves_relacionadas": [
+      "MB-AZ-1967-10"
+    ]
+  },
+  "MB-AZ-0547-10": {
+    "pantone": "Reflex. Blue",
+    "hex": "002395",
+    "claves_relacionadas": [
+      "MB-AZ-0547-10",
+      "MB AZ-1737-30"
+    ]
+  },
+  "MB AZ-1737-30": {
+    "pantone": "662",
+    "hex": "001D77",
+    "claves_relacionadas": [
+      "MB AZ-1737-30"
+    ]
+  },
+  "MB AZ-1724-10": {
+    "pantone": "285",
+    "hex": "0073CF",
+    "claves_relacionadas": [
+      "MB AZ-1724-10",
+      "MB AZ 1724-10",
+      "MB AZ-2030-10",
+      "MB AZ-2059-17"
+    ]
+  },
+  "MB AZ 1724-10": {
+    "pantone": "285",
+    "hex": "0073CF",
+    "claves_relacionadas": [
+      "MB AZ-1724-10",
+      "MB AZ 1724-10",
+      "MB AZ-2030-10",
+      "MB AZ-2059-17"
+    ]
+  },
+  "MB AZ-2030-10": {
+    "pantone": "285",
+    "hex": "0073CF",
+    "claves_relacionadas": [
+      "MB AZ-1724-10",
+      "MB AZ 1724-10",
+      "MB AZ-2030-10",
+      "MB AZ-2059-17"
+    ]
+  },
+  "MB AZ-2059-17": {
+    "pantone": "285",
+    "hex": "0073CF",
+    "claves_relacionadas": [
+      "MB AZ-1724-10",
+      "MB AZ 1724-10",
+      "MB AZ-2030-10",
+      "MB AZ-2059-17"
+    ]
+  },
+  "D21-156": {
+    "pantone": "293",
+    "hex": "0046AD",
+    "claves_relacionadas": [
+      "D21-156"
+    ]
+  },
+  "MB AZ-1569-80": {
+    "pantone": "2985",
+    "hex": "5BC6E8",
+    "claves_relacionadas": [
+      "MB AZ-1569-80"
+    ]
+  },
+  "MB AZ-1603-10": {
+    "pantone": "298",
+    "hex": "3DB7E4",
+    "claves_relacionadas": [
+      "MB AZ-1603-10"
+    ]
+  },
+  "MB AZ 0525-10": {
+    "pantone": "299",
+    "hex": "00A1DE",
+    "claves_relacionadas": [
+      "MB AZ 0525-10"
+    ]
+  },
+  "MB AZ-XXXX-10 D19-172B": {
+    "pantone": "300",
+    "hex": "0065BD",
+    "claves_relacionadas": [
+      "MB AZ-XXXX-10 D19-172B"
+    ]
+  },
+  "MB AZ-0525-10": {
+    "pantone": "2995",
+    "hex": "00A9E0",
+    "claves_relacionadas": [
+      "MB AZ-0525-10"
+    ]
+  },
+  "MB AZ-1493-10": {
+    "pantone": "7711",
+    "hex": "#0097a9",
+    "claves_relacionadas": [
+      "MB AZ-1865-11",
+      "MB AZ-1493-10"
+    ]
+  },
+  "MB VR 2264-10": {
+    "pantone": "3275",
+    "hex": "00B299",
+    "claves_relacionadas": [
+      "MB VR 2264-10"
+    ]
+  },
+  "MB VR-1767-10": {
+    "pantone": "355",
+    "hex": "009B3A",
+    "claves_relacionadas": [
+      "MB VR-1767-10",
+      "MB VR 1643-10",
+      "MB VR 1649-10"
+    ]
+  },
+  "MB VR 1625-1A": {
+    "pantone": "354",
+    "hex": "00AF3F",
+    "claves_relacionadas": [
+      "MB VR 1625-1A"
+    ]
+  },
+  "MB VR 1643-10": {
+    "pantone": "355",
+    "hex": "009B3A",
+    "claves_relacionadas": [
+      "MB VR-1767-10",
+      "MB VR 1643-10",
+      "MB VR 1649-10"
+    ]
+  },
+  "MB VR 1649-10": {
+    "pantone": "355",
+    "hex": "009B3A",
+    "claves_relacionadas": [
+      "MB VR-1767-10",
+      "MB VR 1643-10",
+      "MB VR 1649-10"
+    ]
+  },
+  "MB VR-1643-10": {
+    "pantone": "356",
+    "hex": "007934",
+    "claves_relacionadas": [
+      "MB VR-1643-10",
+      "MB VR-0647-12"
+    ]
+  },
+  "MB VR-1561-10": {
+    "pantone": "361",
+    "hex": "34B233",
+    "claves_relacionadas": [
+      "MB VR-1561-10"
+    ]
+  },
+  "MB VR-1842-10": {
+    "pantone": "368",
+    "hex": "69BE28",
+    "claves_relacionadas": [
+      "MB VR-1842-10"
+    ]
+  },
+  "MB VR-1705-10": {
+    "pantone": "374",
+    "hex": "C3E76F",
+    "claves_relacionadas": [
+      "MB VR-1705-10"
+    ]
+  },
+  "D21-046B": {
+    "pantone": "429",
+    "hex": "A5ACAF",
+    "claves_relacionadas": [
+      "D21-046B"
+    ]
+  },
+  "D19-182C": {
+    "pantone": "430",
+    "hex": "818A8F",
+    "claves_relacionadas": [
+      "D19-182C"
+    ]
+  },
+  "MB GR-1931-32": {
+    "pantone": "432",
+    "hex": "37424A",
+    "claves_relacionadas": [
+      "MB GR-1931-32"
+    ]
+  },
+  "D20-112": {
+    "pantone": "Black 2",
+    "hex": "3C625",
+    "claves_relacionadas": [
+      "D20-112"
+    ]
+  },
+  "D24-014A": {
+    "pantone": "457",
+    "hex": "B19401",
+    "claves_relacionadas": [
+      "D24-014A"
+    ]
+  },
+  "D21-040A": {
+    "pantone": "4655",
+    "hex": "BD9271",
+    "claves_relacionadas": [
+      "D21-040A"
+    ]
+  },
+  "D21-007C": {
+    "pantone": "469",
+    "hex": "60351D",
+    "claves_relacionadas": [
+      "D21-007C"
+    ]
+  },
+  "D21-045A": {
+    "pantone": "4143",
+    "hex": "435570",
+    "claves_relacionadas": [
+      "D21-045A"
+    ]
+  },
+  "MB BG-2192-30": {
+    "pantone": "4755",
+    "hex": "D8C7B9",
+    "claves_relacionadas": [
+      "MB BG-2192-30"
+    ]
+  },
+  "D12-090A": {
+    "pantone": "477",
+    "hex": "5D3526",
+    "claves_relacionadas": [
+      "D12-090A"
+    ]
+  },
+  "D21-041B": {
+    "pantone": "482",
+    "hex": "DAC9B5",
+    "claves_relacionadas": [
+      "D21-041B"
+    ]
+  },
+  "MB VT-1997-12": {
+    "pantone": "519",
+    "hex": "593160",
+    "claves_relacionadas": [
+      "MB VT-1997-12"
+    ]
+  },
+  "MB VT-1780-10": {
+    "pantone": "528",
+    "hex": "AD80D0",
+    "claves_relacionadas": [
+      "MB VT-1780-10"
+    ]
+  },
+  "D19-179B": {
+    "pantone": "543",
+    "hex": "9EC3DE",
+    "claves_relacionadas": [
+      "D19-179B"
+    ]
+  },
+  "En desarrollo 011123": {
+    "pantone": "5473",
+    "hex": "156570",
+    "claves_relacionadas": [
+      "En desarrollo 011123"
+    ]
+  },
+  "MB VR 1783-10": {
+    "pantone": "560",
+    "hex": "23423A",
+    "claves_relacionadas": [
+      "MB VR 1783-10"
+    ]
+  },
+  "D20-008": {
+    "pantone": "573",
+    "hex": "BFE3DA",
+    "claves_relacionadas": [
+      "D20-008"
+    ]
+  },
+  "MB VR-2119-10": {
+    "pantone": "583",
+    "hex": "ABB400",
+    "claves_relacionadas": [
+      "MB VR-2119-10"
+    ]
+  },
+  "D23-171B": {
+    "pantone": "608",
+    "hex": "E9E69F",
+    "claves_relacionadas": [
+      "D23-171B"
+    ]
+  },
+  "MB VR-1307-10": {
+    "pantone": "623",
+    "hex": "9DBCB0",
+    "claves_relacionadas": [
+      "MB VR-1307-10"
+    ]
+  },
+  "MB AZ-2037-10": {
+    "pantone": "645",
+    "hex": "739ABC",
+    "claves_relacionadas": [
+      "MB AZ-2037-10"
+    ]
+  },
+  "D22-091": {
+    "pantone": "659",
+    "hex": "6F9AD3",
+    "claves_relacionadas": [
+      "D22-091",
+      "MB AZ 2152-10"
+    ]
+  },
+  "MB AZ 2152-10": {
+    "pantone": "659",
+    "hex": "6F9AD3",
+    "claves_relacionadas": [
+      "D22-091",
+      "MB AZ 2152-10"
+    ]
+  },
+  "MB AZ-1798-10": {
+    "pantone": "MB AZ-1314-10",
+    "hex": "2A6EBB",
+    "claves_relacionadas": [
+      "MB AZ-1798-10"
+    ]
+  },
+  "MB RS-1709-10": {
+    "pantone": "678",
+    "hex": "E3C8D8",
+    "claves_relacionadas": [
+      "MB RS-1709-10"
+    ]
+  },
+  "MB NR-1959-80": {
+    "pantone": "716",
+    "hex": "EC7A08",
+    "claves_relacionadas": [
+      "MB NR-1959-80"
+    ]
+  },
+  "MB BG-1862-10": {
+    "pantone": "728",
+    "hex": "D3A985",
+    "claves_relacionadas": [
+      "MB BG-1862-10"
+    ]
+  },
+  "MB BG-1812-30": {
+    "pantone": "727",
+    "hex": "DDB99A",
+    "claves_relacionadas": [
+      "MB BG-1812-30"
+    ]
+  },
+  "MB CF-1204-10": {
+    "pantone": "731",
+    "hex": "723D14",
+    "claves_relacionadas": [
+      "MB CF-1204-10"
+    ]
+  },
+  "MB BG-1935-80": {
+    "pantone": "7401",
+    "hex": "F1E3BB",
+    "claves_relacionadas": [
+      "MB BG-1935-80"
+    ]
+  },
+  "D21-114": {
+    "pantone": "7403",
+    "hex": "E8CE79",
+    "claves_relacionadas": [
+      "D21-114"
+    ]
+  },
+  "MB AM-2107-10": {
+    "pantone": "7405",
+    "hex": "ECC200",
+    "claves_relacionadas": [
+      "MB AM-2107-10",
+      "MB AM 1830-10"
+    ]
+  },
+  "MB AM 1830-10": {
+    "pantone": "7405",
+    "hex": "ECC200",
+    "claves_relacionadas": [
+      "MB AM-2107-10",
+      "MB AM 1830-10"
+    ]
+  },
+  "MB AM-0513-10": {
+    "pantone": "7406",
+    "hex": "EBB700",
+    "claves_relacionadas": [
+      "MB AM-0513-10",
+      "MB AM-1264-D0"
+    ]
+  },
+  "MB AM-1264-D0": {
+    "pantone": "7406",
+    "hex": "EBB700",
+    "claves_relacionadas": [
+      "MB AM-0513-10",
+      "MB AM-1264-D0"
+    ]
+  },
+  "MB AM-1037-10": {
+    "pantone": "7408",
+    "hex": "F2AF00",
+    "claves_relacionadas": [
+      "MB AM-1037-10"
+    ]
+  },
+  "D16-084C": {
+    "pantone": "7409",
+    "hex": "EEAF00",
+    "claves_relacionadas": [
+      "D16-084C",
+      "MB AM-1334-10"
+    ]
+  },
+  "MB AM-1334-10": {
+    "pantone": "7409",
+    "hex": "EEAF00",
+    "claves_relacionadas": [
+      "D16-084C",
+      "MB AM-1334-10"
+    ]
+  },
+  "MB RJ-1205-10": {
+    "pantone": "7427",
+    "hex": "96172E",
+    "claves_relacionadas": [
+      "MB RJ-1205-10",
+      "MB RJ 1996-10"
+    ]
+  },
+  "MB RJ 1996-10": {
+    "pantone": "7427",
+    "hex": "96172E",
+    "claves_relacionadas": [
+      "MB RJ-1205-10",
+      "MB RJ 1996-10"
+    ]
+  },
+  "MB AZ-16-99-10": {
+    "pantone": "7460",
+    "hex": "0089C4",
+    "claves_relacionadas": [
+      "MB AZ-16-99-10"
+    ]
+  },
+  "MB AZ-1980-10": {
+    "pantone": "7466",
+    "hex": "00B3BE",
+    "claves_relacionadas": [
+      "MB AZ-1980-10"
+    ]
+  },
+  "D23-179A": {
+    "pantone": "7476",
+    "hex": "005157",
+    "claves_relacionadas": [
+      "D23-179A"
+    ]
+  },
+  "D19-180A": {
+    "pantone": "2253",
+    "hex": "BDE9C9",
+    "claves_relacionadas": [
+      "D19-180A"
+    ]
+  },
+  "MB VT-2199-30": {
+    "pantone": "7663",
+    "hex": "6B3077",
+    "claves_relacionadas": [
+      "MB VT-2199-30",
+      "MB VT-1850-10"
+    ]
+  },
+  "MB VT-1850-10": {
+    "pantone": "7663",
+    "hex": "6B3077",
+    "claves_relacionadas": [
+      "MB VT-2199-30",
+      "MB VT-1850-10"
+    ]
+  },
+  "MB VT-2231-10": {
+    "pantone": "7680",
+    "hex": "523178",
+    "claves_relacionadas": [
+      "MB VT-2231-10"
+    ]
+  },
+  "D21-057 \"B\" Y \"M1\"": {
+    "pantone": "7681",
+    "hex": "9DB0C6",
+    "claves_relacionadas": [
+      "D21-057 \"B\" Y \"M1\""
+    ]
+  },
+  "MB AZ-1865-10": {
+    "pantone": "7710",
+    "hex": "00A7B5",
+    "claves_relacionadas": [
+      "MB AZ-1865-10",
+      "MB VR-2036-17"
+    ]
+  },
+  "MB VR-2036-17": {
+    "pantone": "7710",
+    "hex": "00A7B5",
+    "claves_relacionadas": [
+      "MB AZ-1865-10",
+      "MB VR-2036-17"
+    ]
+  },
+  "MB AZ-1865-11": {
+    "pantone": "7711",
+    "hex": "#0097a9",
+    "claves_relacionadas": [
+      "MB AZ-1865-11",
+      "MB AZ-1493-10"
+    ]
+  },
+  "MB VR-0645-10": {
+    "pantone": "7732",
+    "hex": "#007A3E",
+    "claves_relacionadas": [
+      "MB VR-0645-10",
+      "MB VR 1711-10",
+      "MB VR-2046-10"
+    ]
+  },
+  "MB VR 1711-10": {
+    "pantone": "7732",
+    "hex": "#007A3E",
+    "claves_relacionadas": [
+      "MB VR-0645-10",
+      "MB VR 1711-10",
+      "MB VR-2046-10"
+    ]
+  },
+  "MB VR-2046-10": {
+    "pantone": "7732",
+    "hex": "#007A3E",
+    "claves_relacionadas": [
+      "MB VR-0645-10",
+      "MB VR 1711-10",
+      "MB VR-2046-10"
+    ]
+  },
+  "MB VR-1946-10": {
+    "pantone": "7733",
+    "hex": "7041",
+    "claves_relacionadas": [
+      "MB VR-1946-10",
+      "MB VR 2265-10"
+    ]
+  },
+  "MB VR 2265-10": {
+    "pantone": "7733",
+    "hex": "7041",
+    "claves_relacionadas": [
+      "MB VR-1946-10",
+      "MB VR 2265-10"
+    ]
+  }
+}
