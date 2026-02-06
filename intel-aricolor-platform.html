@@ -1,0 +1,3335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTEL·ARICOLOR·MX - Centro de Inteligencia Comercial</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --aricolor-blue: #0033CC;
+            --aricolor-light-blue: #6BB6FF;
+            --primary: #0033CC;
+            --secondary: #1a4d9e;
+            --accent: #6BB6FF;
+            --bg-white: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --text-dark: #2C3E50;
+            --text-muted: #6C757D;
+            --border: #E0E0E0;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --success: #28A745;
+            --warning: #FFC107;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Franja multicolor ARICOLOR */
+        .rainbow-bar {
+            height: 12px;
+            background-image: url('franja.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: repeat-x;
+            width: 100%;
+        }
+
+        .app-container {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0;
+            background: var(--bg-white);
+            min-height: 100vh;
+            box-shadow: 0 0 40px var(--shadow);
+        }
+
+        .header {
+            background: var(--bg-white);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .header h1 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--aricolor-blue);
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .header-subtitle {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .nav-tab:hover {
+            border-color: var(--aricolor-blue);
+            color: var(--aricolor-blue);
+            background: rgba(0, 51, 204, 0.05);
+        }
+
+        .nav-tab.active {
+            background: var(--aricolor-blue);
+            border-color: var(--aricolor-blue);
+            color: white;
+        }
+
+        .content-panel {
+            background: var(--bg-light);
+            padding: 2rem;
+            min-height: 600px;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .filters-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-group {
+            flex: 1;
+            position: relative;
+        }
+
+        .filter-group-narrow {
+            flex: 0 0 200px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem 1rem 3rem;
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--aricolor-blue);
+            box-shadow: 0 0 0 3px rgba(0, 51, 204, 0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            background: var(--aricolor-blue);
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: var(--bg-white);
+            border: 2px solid var(--aricolor-blue);
+            color: var(--aricolor-blue);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 51, 204, 0.05);
+        }
+
+        .setup-panel {
+            max-width: 700px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+
+        .setup-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--aricolor-blue);
+            font-weight: 700;
+        }
+
+        .setup-description {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .input-label {
+            display: block;
+            color: var(--aricolor-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-field {
+            width: 100%;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            padding: 0.875rem;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--aricolor-blue);
+            box-shadow: 0 0 0 3px rgba(0, 51, 204, 0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+            border-color: var(--aricolor-blue);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--aricolor-blue);
+        }
+
+        .card-title-bar {
+            height: 6px;
+            background-image: url('franja.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: repeat-x;
+            margin-bottom: 1rem;
+            border-radius: 2px;
+        }
+
+        .card-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--aricolor-blue);
+            min-width: 90px;
+        }
+
+        .detail-panel {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .detail-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--aricolor-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+            margin-bottom: 2rem;
+        }
+
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-subtitle {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: var(--aricolor-blue);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.35rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-activo {
+            background: #E8F5E9;
+            color: #2E7D32;
+            border: 1px solid #81C784;
+        }
+
+        .status-inactivo {
+            background: #F5F5F5;
+            color: #757575;
+            border: 1px solid #BDBDBD;
+        }
+
+        .asana-panel {
+            background: rgba(10, 22, 40, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .asana-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .asana-stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(26, 41, 66, 0.5);
+            border-radius: 8px;
+        }
+
+        .asana-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .asana-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        .task-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .task-item {
+            background: rgba(26, 41, 66, 0.3);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .task-item:hover {
+            background: rgba(26, 41, 66, 0.5);
+            border-color: var(--accent);
+        }
+
+        .task-name {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .task-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        .config-panel {
+            background: rgba(26, 41, 66, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .config-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .config-row:last-child {
+            border-bottom: none;
+        }
+
+        .config-label {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .config-value {
+            color: var(--text-muted);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-table th {
+            background: #F5F7FA;
+            color: var(--aricolor-blue);
+            padding: 1rem 0.75rem;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .product-table td {
+            padding: 0.875rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dark);
+        }
+
+        .product-table tr:hover {
+            background: rgba(0, 51, 204, 0.02);
+        }
+
+        .price-cell {
+            color: var(--aricolor-blue);
+            font-weight: 700;
+        }
+
+        .doc-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .doc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .doc-btn-ht {
+            background: #2196F3;
+        }
+
+        .doc-btn-ht:hover {
+            background: #1976D2;
+        }
+
+        .doc-btn-hds {
+            background: #FF9800;
+        }
+
+        .doc-btn-hds:hover {
+            background: #F57C00;
+        }
+
+        .doc-btn-email {
+            background: #4CAF50;
+        }
+
+        .doc-btn-email:hover {
+            background: #388E3C;
+        }
+
+        .doc-btn-whatsapp {
+            background: #25D366;
+        }
+
+        .doc-btn-whatsapp:hover {
+            background: #128C7E;
+        }
+
+        .doc-btn-unavailable {
+            background: #BDBDBD;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .doc-btn-unavailable:hover {
+            background: #BDBDBD;
+        }
+
+        /* Componente de visualización de color */
+        .color-swatch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.6rem;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .color-box {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+        }
+
+        .color-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .color-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.7rem;
+        }
+
+        .color-code {
+            color: var(--text-muted);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+        }
+
+        .no-color {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+
+        /* Botón de llamar */
+        .call-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--success);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .call-btn:hover {
+            background: #218838;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .call-btn:active {
+            transform: scale(0.95);
+        }
+
+        .call-btn-disabled {
+            background: #BDBDBD;
+            cursor: not-allowed;
+        }
+
+        .call-btn-disabled:hover {
+            background: #BDBDBD;
+            transform: none;
+        }
+
+        .card {
+            position: relative;
+        }
+
+        /* Modal de color */
+        .color-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .color-modal {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .color-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .color-modal-close:hover {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .color-modal-swatch {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            margin-bottom: 1.5rem;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+        }
+
+        .color-modal-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .color-modal-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: var(--bg-light);
+            border-radius: 6px;
+        }
+
+        .color-modal-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .color-modal-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--aricolor-blue);
+            font-weight: 600;
+        }
+
+        .color-swatch {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        /* Cuaderno de notas */
+        .nota-form {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .nota-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            background: var(--bg-white);
+            cursor: pointer;
+        }
+
+        .nota-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            resize: vertical;
+            margin-bottom: 1rem;
+        }
+
+        .nota-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--aricolor-blue);
+        }
+
+        .nota-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nota-cliente {
+            font-weight: 600;
+            color: var(--aricolor-blue);
+            font-size: 1.1rem;
+        }
+
+        .nota-fecha {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .nota-texto {
+            color: var(--text-dark);
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* Pantalla de login */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--aricolor-blue) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .login-box {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .login-logo {
+            width: 120px;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--aricolor-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-family: 'Outfit', sans-serif;
+            transition: border-color 0.2s;
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: var(--aricolor-blue);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--aricolor-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .login-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 51, 204, 0.3);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+        }
+
+        .scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .scrollbar::-webkit-scrollbar-track {
+            background: rgba(26, 41, 66, 0.3);
+            border-radius: 4px;
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-warm);
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function App() {
+            const [activeTab, setActiveTab] = useState('clientes');
+            const [isConfigured, setIsConfigured] = useState(false);
+            const [csvUrl, setCsvUrl] = useState('');
+            const [asanaToken, setAsanaToken] = useState('');
+            const [clientes, setClientes] = useState([]);
+            const [selectedCliente, setSelectedCliente] = useState(null);
+            const [searchTerm, setSearchTerm] = useState('');
+            const [cpFilter, setCpFilter] = useState('');
+            const [isLoading, setIsLoading] = useState(false);
+            const [asanaData, setAsanaData] = useState(null);
+            const [productos, setProductos] = useState([]);
+            const [coloresRef, setColoresRef] = useState({});
+            const [colorModal, setColorModal] = useState(null);
+            const [notas, setNotas] = useState([]);
+            const [nuevaNota, setNuevaNota] = useState({ cliente: '', texto: '' });
+            const [isAuthenticated, setIsAuthenticated] = useState(false);
+            const [passwordInput, setPasswordInput] = useState('');
+            const [currentUser, setCurrentUser] = useState(null);
+            const [ipWhitelist, setIpWhitelist] = useState([]);
+            const [newIp, setNewIp] = useState('');
+            const [usuarios, setUsuarios] = useState({});
+            const [nuevoUsuario, setNuevoUsuario] = useState({ nombre: '', password: '' });
+            const [currentIp, setCurrentIp] = useState(null);
+            const [clientesModalColor, setClientesModalColor] = useState(null); // Modal para mostrar clientes por color
+
+            // Cargar referencia de colores
+            useEffect(() => {
+                // Verificar si ya está autenticado
+                const savedAuth = localStorage.getItem('aricolor_auth');
+                const savedUser = localStorage.getItem('aricolor_user');
+                if (savedAuth === 'authenticated' && savedUser) {
+                    setIsAuthenticated(true);
+                    setCurrentUser(savedUser);
+                }
+
+                // Cargar whitelist de IPs con valores compartidos predeterminados
+                const savedWhitelist = localStorage.getItem('aricolor_ip_whitelist');
+                const sharedWhitelistKey = 'aricolor_shared_whitelist'; // Key compartida
+                
+                if (savedWhitelist) {
+                    try {
+                        const localList = JSON.parse(savedWhitelist);
+                        setIpWhitelist(localList);
+                        // Sincronizar con shared
+                        localStorage.setItem(sharedWhitelistKey, savedWhitelist);
+                    } catch (e) {
+                        setIpWhitelist([]);
+                    }
+                } else {
+                    // Intentar cargar desde shared key
+                    const sharedList = localStorage.getItem(sharedWhitelistKey);
+                    if (sharedList) {
+                        try {
+                            const parsedShared = JSON.parse(sharedList);
+                            setIpWhitelist(parsedShared);
+                            localStorage.setItem('aricolor_ip_whitelist', sharedList);
+                        } catch (e) {
+                            setIpWhitelist([]);
+                        }
+                    }
+                }
+
+                // Cargar usuarios
+                const savedUsuarios = localStorage.getItem('aricolor_usuarios');
+                if (savedUsuarios) {
+                    try {
+                        setUsuarios(JSON.parse(savedUsuarios));
+                    } catch (e) {
+                        // Usuarios por defecto si hay error
+                        const defaultUsers = {
+                            'aricolor2026': 'Admin',
+                            'Martin2026': 'Martín',
+                            'Angelica2026': 'Angélica',
+                            'Felipe2026': 'Felipe',
+                            'LuisFernando2026': 'Luis Fernando'
+                        };
+                        setUsuarios(defaultUsers);
+                        localStorage.setItem('aricolor_usuarios', JSON.stringify(defaultUsers));
+                    }
+                } else {
+                    // Primera vez - guardar usuarios por defecto
+                    const defaultUsers = {
+                        'aricolor2026': 'Admin',
+                        'Martin2026': 'Martín',
+                        'Angelica2026': 'Angélica',
+                        'Felipe2026': 'Felipe',
+                        'LuisFernando2026': 'Luis Fernando'
+                    };
+                    setUsuarios(defaultUsers);
+                    localStorage.setItem('aricolor_usuarios', JSON.stringify(defaultUsers));
+                }
+
+                const loadColores = async () => {
+                    try {
+                        console.log('🎨 Cargando referencia de colores...');
+                        const response = await fetch('./colores_referencia.json');
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
+                        const data = await response.json();
+                        setColoresRef(data);
+                        console.log(`✅ Cargados ${Object.keys(data).length} colores de referencia`);
+                    } catch (err) {
+                        console.error('❌ Error cargando colores_referencia.json:', err);
+                        setColoresRef({});
+                    }
+                };
+                loadColores();
+
+                // Obtener IP actual del usuario
+                const getCurrentIp = async () => {
+                    try {
+                        const ipResponse = await fetch('https://ipapi.co/json/');
+                        if (ipResponse.ok) {
+                            const ipData = await ipResponse.json();
+                            setCurrentIp(ipData.ip);
+                        }
+                    } catch (e) {
+                        console.log('No se pudo obtener IP actual');
+                    }
+                };
+                getCurrentIp();
+            }, []);
+
+            // Cargar catálogo de productos
+            useEffect(() => {
+                const loadProductos = async () => {
+                    try {
+                        console.log('🔄 Intentando cargar productos_catalogo.json...');
+                        const response = await fetch('./productos_catalogo.json');
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
+                        const data = await response.json();
+                        console.log(`📦 Datos recibidos: ${data.length} productos`);
+                        setProductos(data);
+                        console.log(`✅ Cargados ${data.length} productos del catálogo`);
+                        console.log('📊 Primeros 3 productos:', data.slice(0, 3));
+                    } catch (err) {
+                        console.error('❌ Error cargando productos_catalogo.json:', err);
+                        setProductos([]);
+                    }
+                };
+                loadProductos();
+            }, []);
+
+            // Cargar configuración del localStorage
+            useEffect(() => {
+                const savedCsvUrl = localStorage.getItem('aricolor_csv_url');
+                const savedAsanaToken = localStorage.getItem('aricolor_asana_token');
+                const savedNotas = localStorage.getItem('aricolor_notas');
+                
+                if (savedCsvUrl && savedAsanaToken) {
+                    setCsvUrl(savedCsvUrl);
+                    setAsanaToken(savedAsanaToken);
+                    setIsConfigured(true);
+                    
+                    // Cargar datos automáticamente
+                    loadClientesFromCSV(savedCsvUrl);
+                }
+
+                if (savedNotas) {
+                    try {
+                        setNotas(JSON.parse(savedNotas));
+                    } catch (e) {
+                        console.error('Error cargando notas:', e);
+                    }
+                }
+            }, []);
+
+            // Funciones para documentos HT/HDS
+            const extractProductCode = (productName) => {
+                // Extraer el código numérico de la clave del producto
+                // Ejemplo: "MB AM-1248-14" → "1248"
+                const match = productName.match(/(\d{4})/);
+                return match ? match[1] : null;
+            };
+
+            // Función para obtener color de un producto
+            const getProductColor = (productName) => {
+                if (!productName || !coloresRef) return null;
+                
+                // Intentar búsqueda exacta primero
+                if (coloresRef[productName]) {
+                    return coloresRef[productName];
+                }
+                
+                // Extraer código numérico (ej: 1500, 0627)
+                const codeMatch = productName.match(/(\d{4})/);
+                if (!codeMatch) return null;
+                
+                const code = codeMatch[1];
+                
+                // Buscar en todas las claves del JSON que contengan ese código
+                for (const [key, colorData] of Object.entries(coloresRef)) {
+                    if (key.includes(code)) {
+                        return colorData;
+                    }
+                }
+                
+                return null;
+            };
+
+            // Componente para mostrar color
+            const ColorSwatch = ({ productName }) => {
+                const colorData = getProductColor(productName);
+                
+                if (!colorData) {
+                    return <span className="no-color">Sin color</span>;
+                }
+
+                return (
+                    <div 
+                        className="color-swatch"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setColorModal({ productName, colorData });
+                        }}
+                        title="Click para ver detalles del color"
+                    >
+                        <div 
+                            className="color-box" 
+                            style={{backgroundColor: `#${colorData.hex}`}}
+                        ></div>
+                        <div className="color-info">
+                            <span className="color-label">Pantone {colorData.pantone}</span>
+                            <span className="color-code">#{colorData.hex}</span>
+                        </div>
+                    </div>
+                );
+            };
+
+            const getDocumentLinks = (productName) => {
+                const code = extractProductCode(productName);
+                if (!code) return { ht: null, hds: null };
+
+                // IDs de las carpetas de Google Drive
+                const htFolderId = '1h6aNyJIKV551r0oPoSm8KIqn54Ek4sJY';
+                const hdsFolderId = '1mnIjaCd5SiGU596Hmnjq2Jg0RLNnlkKO';
+
+                // Generar URLs de búsqueda en Drive
+                // Nota: Esto abre Drive con búsqueda, el usuario debe seleccionar el archivo R más alto
+                return {
+                    ht: `https://drive.google.com/drive/folders/${htFolderId}?q=${code}`,
+                    hds: `https://drive.google.com/drive/folders/${hdsFolderId}?q=${code}`
+                };
+            };
+
+            const sendDocByEmail = (productName, docType) => {
+                const links = getDocumentLinks(productName);
+                const link = docType === 'ht' ? links.ht : links.hds;
+                const subject = `${docType === 'ht' ? 'Hoja Técnica' : 'Hoja de Seguridad'} - ${productName}`;
+                const body = `Hola,\n\nTe comparto el enlace para acceder a la ${docType === 'ht' ? 'Hoja Técnica' : 'Hoja de Seguridad'} del producto ${productName}:\n\n${link}\n\nSaludos,\nARICOLOR`;
+                
+                window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            };
+
+            const sendDocByWhatsApp = (productName, docType) => {
+                const links = getDocumentLinks(productName);
+                const link = docType === 'ht' ? links.ht : links.hds;
+                const message = `Hola! Te comparto la ${docType === 'ht' ? 'Hoja Técnica' : 'Hoja de Seguridad'} del producto *${productName}*:\n\n${link}`;
+                
+                window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+            };
+
+            // Función para guardar nota
+            const guardarNota = () => {
+                if (!nuevaNota.cliente || !nuevaNota.texto.trim()) {
+                    alert('Por favor selecciona un cliente y escribe una nota');
+                    return;
+                }
+
+                const nota = {
+                    id: Date.now(),
+                    cliente: nuevaNota.cliente,
+                    texto: nuevaNota.texto,
+                    fecha: new Date().toLocaleString('es-MX', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    })
+                };
+
+                const nuevasNotas = [nota, ...notas];
+                setNotas(nuevasNotas);
+                localStorage.setItem('aricolor_notas', JSON.stringify(nuevasNotas));
+                setNuevaNota({ cliente: '', texto: '' });
+            };
+
+            // Función de login
+            const handleLogin = async (e) => {
+                e.preventDefault();
+                
+                const savedUsuarios = JSON.parse(localStorage.getItem('aricolor_usuarios') || '{}');
+                const usuario = savedUsuarios[passwordInput];
+                
+                if (usuario) {
+                    // Obtener información del acceso
+                    let ipInfo = { ip: 'Desconocida', city: 'Desconocida', country: 'MX' };
+                    try {
+                        const ipResponse = await fetch('https://ipapi.co/json/');
+                        if (ipResponse.ok) {
+                            ipInfo = await ipResponse.json();
+                        }
+                    } catch (e) {
+                        console.log('No se pudo obtener IP');
+                    }
+
+                    // Detectar dispositivo y navegador
+                    const ua = navigator.userAgent;
+                    let dispositivo = 'Desconocido';
+                    if (/Windows/i.test(ua)) dispositivo = 'Windows';
+                    else if (/Mac/i.test(ua)) dispositivo = 'Mac';
+                    else if (/iPhone/i.test(ua)) dispositivo = 'iPhone';
+                    else if (/iPad/i.test(ua)) dispositivo = 'iPad';
+                    else if (/Android/i.test(ua)) dispositivo = 'Android';
+                    else if (/Linux/i.test(ua)) dispositivo = 'Linux';
+
+                    let navegador = 'Desconocido';
+                    if (/Chrome/i.test(ua) && !/Edge/i.test(ua)) navegador = 'Chrome';
+                    else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) navegador = 'Safari';
+                    else if (/Firefox/i.test(ua)) navegador = 'Firefox';
+                    else if (/Edge/i.test(ua)) navegador = 'Edge';
+
+                    // Verificar whitelist de IPs (NO aplica para Admin)
+                    if (usuario !== 'Admin') {
+                        const savedWhitelist = JSON.parse(localStorage.getItem('aricolor_ip_whitelist') || '[]');
+                        
+                        // IPs SIEMPRE autorizadas (hardcodeadas en el sistema)
+                        const ipsAutorizadasPorDefecto = [
+                            '187.190.190.19',    // Oficina (Angélica, Felipe, Martín, Luis Fernando)
+                            '189.201.110.203',   // iPhone personal
+                            '201.133.210.225',   // iPad Mini
+                            // Agregar más IPs aquí según sea necesario
+                        ];
+                        
+                        // Combinar IPs del localStorage con IPs por defecto
+                        const todasLasIPsAutorizadas = [...new Set([...savedWhitelist, ...ipsAutorizadasPorDefecto])];
+                        
+                        // DEBUG: Mostrar información de validación
+                        console.log('🔍 DEBUG IP Validation:');
+                        console.log('IP actual:', ipInfo.ip);
+                        console.log('Whitelist del navegador:', savedWhitelist);
+                        console.log('IPs por defecto:', ipsAutorizadasPorDefecto);
+                        console.log('Todas las IPs autorizadas:', todasLasIPsAutorizadas);
+                        
+                        // Si hay whitelist configurada, validar IP
+                        if (todasLasIPsAutorizadas.length > 0) {
+                            const ipAutorizada = todasLasIPsAutorizadas.includes(ipInfo.ip);
+                            console.log('¿IP autorizada?', ipAutorizada);
+                            
+                            if (!ipAutorizada) {
+                                // Registrar intento bloqueado
+                                const intentosBloqueados = JSON.parse(localStorage.getItem('aricolor_intentos_bloqueados') || '[]');
+                                intentosBloqueados.push({
+                                    usuario: usuario,
+                                    password: passwordInput,
+                                    ip: ipInfo.ip,
+                                    city: ipInfo.city,
+                                    country: ipInfo.country_name || 'Desconocido',
+                                    dispositivo: dispositivo,
+                                    navegador: navegador,
+                                    fecha: new Date().toLocaleString('es-MX', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric',
+                                        hour: '2-digit',
+                                        minute: '2-digit',
+                                        second: '2-digit'
+                                    }),
+                                    timestamp: Date.now()
+                                });
+                                localStorage.setItem('aricolor_intentos_bloqueados', JSON.stringify(intentosBloqueados));
+                                
+                                alert('🚫 ACCESO DENEGADO\n\n' +
+                                      'Esta ubicación no está autorizada.\n\n' +
+                                      'Tu IP: ' + ipInfo.ip + '\n' +
+                                      'Ubicación: ' + ipInfo.city + ', ' + ipInfo.country_name + '\n\n' +
+                                      'IPs autorizadas: ' + todasLasIPsAutorizadas.join(', ') + '\n\n' +
+                                      'Contacta al administrador para autorizar tu IP.');
+                                setPasswordInput('');
+                                return;
+                            }
+                        } else {
+                            console.log('✅ Whitelist vacía - acceso permitido desde cualquier IP');
+                        }
+                        // Si NO hay whitelist configurada, permitir acceso desde cualquier IP
+                    }
+
+                    const acceso = {
+                        usuario: usuario,
+                        fecha: new Date().toLocaleString('es-MX', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            second: '2-digit'
+                        }),
+                        timestamp: Date.now(),
+                        ip: ipInfo.ip || 'Desconocida',
+                        city: ipInfo.city || 'Desconocida',
+                        country: ipInfo.country_name || 'Desconocido',
+                        countryCode: ipInfo.country_code || 'MX',
+                        dispositivo: dispositivo,
+                        navegador: navegador
+                    };
+
+                    // Registrar acceso en log
+                    const accessLog = JSON.parse(localStorage.getItem('aricolor_access_log') || '[]');
+                    accessLog.push(acceso);
+                    localStorage.setItem('aricolor_access_log', JSON.stringify(accessLog));
+
+                    // Detectar accesos sospechosos (solo para no-Admin)
+                    if (usuario !== 'Admin') {
+                        const alertas = JSON.parse(localStorage.getItem('aricolor_alertas') || '[]');
+                        const accesosPrevios = accessLog.filter(a => a.usuario === usuario && a.timestamp !== acceso.timestamp);
+                        
+                        // Alerta: IP nueva
+                        if (accesosPrevios.length > 0) {
+                            const ipsAnteriores = [...new Set(accesosPrevios.map(a => a.ip))];
+                            if (!ipsAnteriores.includes(acceso.ip)) {
+                                alertas.push({
+                                    tipo: 'IP_NUEVA',
+                                    usuario: usuario,
+                                    mensaje: `${usuario} accedió desde IP nueva: ${acceso.ip} (${acceso.city})`,
+                                    fecha: acceso.fecha,
+                                    timestamp: acceso.timestamp,
+                                    detalles: acceso
+                                });
+                            }
+                        }
+
+                        // Alerta: País diferente a México
+                        if (acceso.countryCode !== 'MX') {
+                            alertas.push({
+                                tipo: 'PAIS_EXTRANJERO',
+                                usuario: usuario,
+                                mensaje: `${usuario} accedió desde ${acceso.country}`,
+                                fecha: acceso.fecha,
+                                timestamp: acceso.timestamp,
+                                detalles: acceso
+                            });
+                        }
+
+                        // Alerta: Múltiples usuarios misma IP
+                        const usuariosMismaIP = [...new Set(accessLog.filter(a => a.ip === acceso.ip && a.timestamp > Date.now() - 86400000).map(a => a.usuario))];
+                        if (usuariosMismaIP.length > 1) {
+                            alertas.push({
+                                tipo: 'MISMA_IP',
+                                usuario: usuario,
+                                mensaje: `Múltiples usuarios desde IP ${acceso.ip}: ${usuariosMismaIP.join(', ')}`,
+                                fecha: acceso.fecha,
+                                timestamp: acceso.timestamp,
+                                detalles: acceso
+                            });
+                        }
+
+                        localStorage.setItem('aricolor_alertas', JSON.stringify(alertas));
+                    }
+                    
+                    // Autenticar
+                    setIsAuthenticated(true);
+                    setCurrentUser(usuario);
+                    localStorage.setItem('aricolor_auth', 'authenticated');
+                    localStorage.setItem('aricolor_user', usuario);
+                    setPasswordInput('');
+                } else {
+                    alert('❌ Contraseña incorrecta');
+                    setPasswordInput('');
+                }
+            };
+
+            // Función de cerrar sesión
+            const handleLogout = () => {
+                if (confirm('¿Seguro que deseas cerrar sesión?')) {
+                    localStorage.removeItem('aricolor_auth');
+                    localStorage.removeItem('aricolor_user');
+                    setIsAuthenticated(false);
+                    setCurrentUser(null);
+                    setPasswordInput('');
+                }
+            };
+
+            // Funciones para manejar whitelist de IPs
+            const agregarIP = () => {
+                const ip = newIp.trim();
+                
+                if (!ip) {
+                    alert('Por favor ingresa una IP');
+                    return;
+                }
+                
+                // Validar formato IPv4 estricto (solo permite 0-255 en cada octeto)
+                const ipv4Regex = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+                
+                if (!ipv4Regex.test(ip)) {
+                    alert('❌ Formato de IP inválido\n\n' +
+                          'Debe ser una dirección IPv4 válida.\n' +
+                          'Ejemplo: 192.168.1.1\n\n' +
+                          'Tu entrada: ' + ip);
+                    return;
+                }
+                
+                // Verificar si ya existe
+                if (ipWhitelist.includes(ip)) {
+                    alert('⚠️ Esta IP ya está autorizada\n\n' + ip);
+                    return;
+                }
+                
+                const updatedWhitelist = [...ipWhitelist, ip];
+                setIpWhitelist(updatedWhitelist);
+                localStorage.setItem('aricolor_ip_whitelist', JSON.stringify(updatedWhitelist));
+                setNewIp('');
+                
+                alert('✅ IP agregada correctamente\n\n' + 
+                      ip + '\n\n' +
+                      'Los usuarios ahora pueden acceder desde esta ubicación.');
+            };
+
+            const eliminarIP = (ip) => {
+                if (confirm(`⚠️ ¿Eliminar IP de la whitelist?\n\n${ip}\n\nLos usuarios desde esta IP ya no podrán acceder.`)) {
+                    const updatedWhitelist = ipWhitelist.filter(i => i !== ip);
+                    setIpWhitelist(updatedWhitelist);
+                    localStorage.setItem('aricolor_ip_whitelist', JSON.stringify(updatedWhitelist));
+                    alert('✅ IP eliminada correctamente');
+                }
+            };
+
+            // Funciones para gestionar usuarios
+            const agregarUsuario = () => {
+                if (!nuevoUsuario.nombre.trim() || !nuevoUsuario.password.trim()) {
+                    alert('Por favor completa nombre y contraseña');
+                    return;
+                }
+
+                if (usuarios[nuevoUsuario.password]) {
+                    alert('Esa contraseña ya está en uso. Elige otra.');
+                    return;
+                }
+
+                const updatedUsuarios = {
+                    ...usuarios,
+                    [nuevoUsuario.password]: nuevoUsuario.nombre
+                };
+                setUsuarios(updatedUsuarios);
+                localStorage.setItem('aricolor_usuarios', JSON.stringify(updatedUsuarios));
+                setNuevoUsuario({ nombre: '', password: '' });
+                alert(`✅ Usuario "${nuevoUsuario.nombre}" creado con contraseña "${nuevoUsuario.password}"`);
+            };
+
+            const eliminarUsuario = (password, nombre) => {
+                if (nombre === 'Admin') {
+                    alert('❌ No puedes eliminar al usuario Admin');
+                    return;
+                }
+
+                if (confirm(`¿Eliminar usuario "${nombre}"?\n\nContraseña: ${password}`)) {
+                    const updatedUsuarios = { ...usuarios };
+                    delete updatedUsuarios[password];
+                    setUsuarios(updatedUsuarios);
+                    localStorage.setItem('aricolor_usuarios', JSON.stringify(updatedUsuarios));
+                }
+            };
+
+            const saveConfiguration = async () => {
+                if (!csvUrl || !asanaToken) {
+                    alert('Por favor completa ambos campos');
+                    return;
+                }
+
+                // Validar formato del CSV URL
+                if (!csvUrl.includes('docs.google.com') || !csvUrl.includes('output=csv')) {
+                    alert('⚠️ El link CSV no parece válido.\n\nAsegúrate de que:\n1. Sea de Google Sheets\n2. Termine con "output=csv"\n3. Sea un link publicado');
+                    return;
+                }
+
+                setIsLoading(true);
+                try {
+                    // Probar la conexión y cargar datos
+                    await loadClientesFromCSV(csvUrl);
+                    
+                    // Si funcionó, guardar configuración
+                    localStorage.setItem('aricolor_csv_url', csvUrl);
+                    localStorage.setItem('aricolor_asana_token', asanaToken);
+                    setIsConfigured(true);
+                    
+                    alert(`✅ Configuración guardada!\n\nLos datos se cargarán automáticamente cada vez que abras la plataforma.`);
+                } catch (error) {
+                    alert(`❌ Error al conectar:\n\n${error.message}\n\nVerifica el link CSV.`);
+                    setIsLoading(false);
+                }
+            };
+
+            const reloadCSVData = async () => {
+                if (!csvUrl) {
+                    alert('No hay URL CSV configurada');
+                    return;
+                }
+                
+                await loadClientesFromCSV(csvUrl);
+            };
+
+            const resetConfiguration = () => {
+                if (confirm('¿Estás seguro de que quieres desconectar y borrar toda la configuración?')) {
+                    localStorage.removeItem('aricolor_csv_url');
+                    localStorage.removeItem('aricolor_asana_token');
+                    setCsvUrl('');
+                    setAsanaToken('');
+                    setIsConfigured(false);
+                    setClientes([]);
+                    setSelectedCliente(null);
+                }
+            };
+
+            const parseCSVLine = (line) => {
+                const result = [];
+                let current = '';
+                let inQuotes = false;
+                
+                for (let i = 0; i < line.length; i++) {
+                    const char = line[i];
+                    
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        result.push(current.trim());
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                result.push(current.trim());
+                return result;
+            };
+
+            const loadClientesFromCSV = async (url) => {
+                setIsLoading(true);
+                try {
+                    console.log('🔄 Cargando datos desde Google Sheets...');
+                    
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const csvText = await response.text();
+                    const rows = csvText.split('\n').filter(row => row.trim());
+                    
+                    if (rows.length < 2) {
+                        throw new Error('El CSV está vacío o solo tiene encabezados');
+                    }
+
+                    const clientesData = [];
+
+                    for (let i = 1; i < rows.length; i++) {
+                        const values = parseCSVLine(rows[i]);
+                        if (values.length < 7) continue;
+
+                        const productos = [];
+                        // Leer productos desde columna 12 hasta columna 72 (BN + 6 columnas nuevas)
+                        // No leer más allá para evitar columnas auxiliares BO+
+                        const maxColumna = Math.min(72, values.length); // Hasta columna 72 (BT) máximo
+                        for (let j = 12; j < maxColumna; j += 2) {
+                            const productoNombre = values[j]?.replace(/^["']|["']$/g, '').trim();
+                            const productoPrecio = values[j+1]?.replace(/^["']|["']$/g, '').trim();
+                            
+                            // Mostrar producto si tiene nombre (con o sin precio)
+                            if (productoNombre && productoNombre !== 'x' && productoNombre !== '') {
+                                productos.push({
+                                    nombre: productoNombre,
+                                    precio: productoPrecio || 'Pendiente'
+                                });
+                            }
+                        }
+
+                        const nombreCliente = values[0]?.replace(/^["']|["']$/g, '').trim();
+                        if (!nombreCliente) continue;
+
+                        clientesData.push({
+                            nombre: nombreCliente,
+                            asana: values[1]?.replace(/^["']|["']$/g, '').trim() || '',
+                            sector: values[2]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            status: values[3]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            responsable: values[4]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            zona: values[5]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            contacto: values[6]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            telFijo: values[7]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            celular: values[8]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            mail: values[9]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            direccion: values[10]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            codigoPostal: values[11]?.replace(/^["']|["']$/g, '').trim() || 'N/A',
+                            productos: productos
+                        });
+                    }
+
+                    setClientes(clientesData);
+                    console.log(`✅ Cargados ${clientesData.length} clientes desde Google Sheets`);
+                } catch (error) {
+                    console.error('❌ Error cargando datos:', error);
+                    alert(`Error cargando datos de Google Sheets:\n\n${error.message}\n\nVerifica que el link CSV sea correcto.`);
+                }
+                setIsLoading(false);
+            };
+
+            const loadAsanaData = async (projectUrl) => {
+                if (!asanaToken || !projectUrl) return;
+
+                // Extraer project ID del URL
+                const projectMatch = projectUrl.match(/\/(\d+)\//);
+                if (!projectMatch) return;
+
+                const projectId = projectMatch[1];
+
+                try {
+                    setIsLoading(true);
+                    
+                    // Obtener tareas del proyecto
+                    const response = await fetch(`https://app.asana.com/api/1.0/projects/${projectId}/tasks`, {
+                        headers: {
+                            'Authorization': `Bearer ${asanaToken}`
+                        }
+                    });
+
+                    const data = await response.json();
+                    
+                    if (data.data) {
+                        // Obtener detalles de cada tarea
+                        const tasksDetails = await Promise.all(
+                            data.data.slice(0, 15).map(async (task) => {
+                                const taskResponse = await fetch(`https://app.asana.com/api/1.0/tasks/${task.gid}`, {
+                                    headers: {
+                                        'Authorization': `Bearer ${asanaToken}`
+                                    }
+                                });
+                                const taskData = await taskResponse.json();
+                                return taskData.data;
+                            })
+                        );
+
+                        // Procesar estadísticas
+                        const sections = {};
+                        tasksDetails.forEach(task => {
+                            const section = task.memberships?.[0]?.section?.name || 'Sin Sección';
+                            sections[section] = (sections[section] || 0) + 1;
+                        });
+
+                        setAsanaData({
+                            tasks: tasksDetails,
+                            sections: sections
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error cargando datos de Asana:', error);
+                }
+                setIsLoading(false);
+            };
+
+            useEffect(() => {
+                if (selectedCliente && selectedCliente.asana) {
+                    loadAsanaData(selectedCliente.asana);
+                }
+            }, [selectedCliente]);
+
+            const filteredClientes = clientes.filter(c => {
+                const matchesSearch = !searchTerm || 
+                    (c.nombre && String(c.nombre).toLowerCase().includes(searchTerm.toLowerCase())) ||
+                    (c.sector && String(c.sector).toLowerCase().includes(searchTerm.toLowerCase())) ||
+                    (c.zona && String(c.zona).toLowerCase().includes(searchTerm.toLowerCase()));
+                
+                const matchesCp = !cpFilter || 
+                    (c.codigoPostal && String(c.codigoPostal).includes(cpFilter));
+                
+                return matchesSearch && matchesCp;
+            });
+
+            const filteredProductos = searchTerm.trim() === '' 
+                ? productos 
+                : productos.filter(p => {
+                    const search = searchTerm.toLowerCase();
+                    const clave = String(p.Clave || '').toLowerCase();
+                    const color = String(p.Color || '').toLowerCase();
+                    const resina = String(p.Resina || '').toLowerCase();
+                    return clave.includes(search) || color.includes(search) || resina.includes(search);
+                });
+
+            // Pantalla de login
+            if (!isAuthenticated) {
+                return (
+                    <div className="login-overlay">
+                        <div className="login-box">
+                            <img src="logoari2013.jpg" alt="ARICOLOR" className="login-logo" />
+                            <h1 className="login-title">INTEL·ARICOLOR·MX</h1>
+                            <p className="login-subtitle">Centro de Inteligencia Comercial</p>
+                            
+                            <form onSubmit={handleLogin}>
+                                <input
+                                    type="password"
+                                    className="login-input"
+                                    placeholder="Contraseña"
+                                    value={passwordInput}
+                                    onChange={(e) => setPasswordInput(e.target.value)}
+                                    autoFocus
+                                />
+                                <button type="submit" className="login-btn">
+                                    🔐 Acceder
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                );
+            }
+
+            if (!isConfigured) {
+                return (
+                    <div className="app-container">
+                        <div className="header">
+                            <h1>INTEL·ARICOLOR·MX</h1>
+                            <p className="header-subtitle">Centro de Inteligencia Comercial</p>
+                        </div>
+
+                        <div className="content-panel">
+                            <div className="setup-panel">
+                                <div className="setup-title">🚀 Configuración Inicial</div>
+                                <p className="setup-description">
+                                    Conecta tu Google Sheet y Asana para activar la plataforma.<br/>
+                                    Solo necesitas hacer esto una vez.
+                                </p>
+
+                                <div className="input-group">
+                                    <label className="input-label">📊 Link CSV de Google Sheet</label>
+                                    <input
+                                        type="text"
+                                        className="input-field"
+                                        placeholder="https://docs.google.com/spreadsheets/.../pub?gid=0&single=true&output=csv"
+                                        value={csvUrl}
+                                        onChange={(e) => setCsvUrl(e.target.value)}
+                                    />
+                                    <p style={{fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.5rem', lineHeight: '1.5'}}>
+                                        💡 <strong>Usa tu link actual:</strong><br/>
+                                        <code style={{background: 'rgba(0,217,255,0.1)', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.8rem'}}>
+                                            https://docs.google.com/spreadsheets/d/e/2PACX-1vRl9fmzoNnqUSqg29otLpAKhbLkgzN72pW1zjet045NQWX9Iyux7BKrIpa1L-wA2VLlqAoGWq2mnIBQ/pub?gid=0&single=true&output=csv
+                                        </code>
+                                    </p>
+                                </div>
+
+                                <div className="input-group">
+                                    <label className="input-label">🔐 Token de Asana</label>
+                                    <input
+                                        type="password"
+                                        className="input-field"
+                                        placeholder="1/1234567890:abcdef..."
+                                        value={asanaToken}
+                                        onChange={(e) => setAsanaToken(e.target.value)}
+                                    />
+                                    <p style={{fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.5rem', lineHeight: '1.5'}}>
+                                        💡 <strong>Cómo obtener el token:</strong><br/>
+                                        1. En Asana, click en tu foto de perfil<br/>
+                                        2. My Settings → Apps → Personal Access Tokens<br/>
+                                        3. Click "New access token" → Dale un nombre → Copia el token
+                                    </p>
+                                </div>
+
+                                <button 
+                                    className="btn" 
+                                    onClick={saveConfiguration}
+                                    disabled={isLoading}
+                                >
+                                    {isLoading ? 'Conectando...' : 'Conectar Plataforma'}
+                                </button>
+
+                                <div style={{marginTop: '2rem', padding: '1.5rem', background: 'rgba(0, 217, 255, 0.05)', borderRadius: '10px', border: '1px solid var(--border)'}}>
+                                    <p style={{fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6'}}>
+                                        ℹ️ <strong>Nota:</strong> Tus credenciales se guardan solo en tu navegador (localStorage). 
+                                        Nadie más tiene acceso a ellas. Los datos siempre se cargan en tiempo real desde tus fuentes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+
+            const renderClientes = () => (
+                <>
+                    <div className="filters-row">
+                        <div className="filter-group">
+                            <span className="search-icon">🔍</span>
+                            <input
+                                type="text"
+                                className="search-input"
+                                placeholder="Buscar por cliente, sector, o zona..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </div>
+                        <div className="filter-group filter-group-narrow">
+                            <span className="search-icon">📮</span>
+                            <input
+                                type="text"
+                                className="search-input"
+                                placeholder="C.P."
+                                value={cpFilter}
+                                onChange={(e) => setCpFilter(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    {selectedCliente ? (
+                        <div className="detail-panel">
+                            <div className="detail-header">
+                                <div>
+                                    <h2 className="detail-title">{selectedCliente.nombre}</h2>
+                                    <p className="detail-subtitle">{selectedCliente.sector}</p>
+                                </div>
+                                <button className="btn btn-secondary" onClick={() => { setSelectedCliente(null); setAsanaData(null); }}>
+                                    Cerrar
+                                </button>
+                            </div>
+
+                            <div style={{marginBottom: '2rem'}}>
+                                <div className="info-row">
+                                    <span className="info-label">📍 Zona:</span>
+                                    <span>{selectedCliente.zona}</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">👤 Responsable:</span>
+                                    <span>{selectedCliente.responsable}</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">📊 Status:</span>
+                                    <span className={`status-badge ${selectedCliente.status && selectedCliente.status.toLowerCase().includes('activo') ? 'status-activo' : 'status-inactivo'}`}>
+                                        {selectedCliente.status}
+                                    </span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">👤 Contacto:</span>
+                                    <span>{selectedCliente.contacto}</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">📞 Tel. Fijo:</span>
+                                    <span>{selectedCliente.telFijo}</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">📱 Celular:</span>
+                                    <span>{selectedCliente.celular}</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">📧 Email:</span>
+                                    <span>{selectedCliente.mail}</span>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">📍 Dirección:</span>
+                                    <div style={{display: 'flex', gap: '0.5rem', alignItems: 'center'}}>
+                                        <span>{selectedCliente.direccion}</span>
+                                        {selectedCliente.direccion !== 'N/A' && (
+                                            <a 
+                                                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedCliente.direccion)}`}
+                                                target="_blank"
+                                                className="doc-btn doc-btn-ht"
+                                                style={{marginLeft: '0.5rem', fontSize: '0.7rem', padding: '0.3rem 0.6rem'}}
+                                                title="Ver en Google Maps"
+                                            >
+                                                📍 Ver Mapa
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="info-row">
+                                    <span className="info-label">📮 C.P.:</span>
+                                    <span>{selectedCliente.codigoPostal}</span>
+                                </div>
+                                {selectedCliente.asana && (
+                                    <div className="info-row">
+                                        <span className="info-label">🎯 Asana:</span>
+                                        <a href={selectedCliente.asana} target="_blank" style={{color: 'var(--accent)', textDecoration: 'underline'}}>
+                                            Ver Proyecto
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
+
+                            <h3 className="section-title">💰 Productos y Precios</h3>
+                            {selectedCliente.productos.length > 0 ? (
+                                <table className="product-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Producto</th>
+                                            <th>Color</th>
+                                            <th>Precio</th>
+                                            <th>Documentos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {selectedCliente.productos.map((prod, idx) => {
+                                            const docLinks = getDocumentLinks(prod.nombre);
+                                            return (
+                                                <tr key={idx}>
+                                                    <td>{prod.nombre}</td>
+                                                    <td>
+                                                        <ColorSwatch productName={prod.nombre} />
+                                                    </td>
+                                                    <td className="price-cell">{prod.precio}</td>
+                                                    <td>
+                                                        <div className="doc-buttons">
+                                                            {docLinks.ht ? (
+                                                                <a href={docLinks.ht} target="_blank" className="doc-btn doc-btn-ht" title="Ver Hoja Técnica">
+                                                                    📄 HT
+                                                                </a>
+                                                            ) : (
+                                                                <span className="doc-btn doc-btn-unavailable" title="HT no disponible">
+                                                                    📄 HT
+                                                                </span>
+                                                            )}
+                                                            {docLinks.hds ? (
+                                                                <a href={docLinks.hds} target="_blank" className="doc-btn doc-btn-hds" title="Ver Hoja de Seguridad">
+                                                                    📄 HDS
+                                                                </a>
+                                                            ) : (
+                                                                <span className="doc-btn doc-btn-unavailable" title="HDS no disponible">
+                                                                    📄 HDS
+                                                                </span>
+                                                            )}
+                                                            <button onClick={() => sendDocByEmail(prod.nombre, 'ht')} className="doc-btn doc-btn-email" title="Enviar por Email">
+                                                                📧
+                                                            </button>
+                                                            <button onClick={() => sendDocByWhatsApp(prod.nombre, 'ht')} className="doc-btn doc-btn-whatsapp" title="Enviar por WhatsApp">
+                                                                💬
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            );
+                                        })}
+                                    </tbody>
+                                </table>
+                            ) : (
+                                <p style={{color: 'var(--text-muted)', textAlign: 'center', padding: '2rem'}}>
+                                    No hay productos registrados para este cliente
+                                </p>
+                            )}
+
+                            {/* Sección de Notas del Cliente */}
+                            {(() => {
+                                const notasCliente = notas.filter(n => n.cliente === selectedCliente.nombre);
+                                return (
+                                    <div style={{marginTop: '2rem'}}>
+                                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem'}}>
+                                            <h3 className="section-title">📝 Notas del Cliente ({notasCliente.length})</h3>
+                                            <div style={{display: 'flex', gap: '0.5rem'}}>
+                                                {notasCliente.length > 5 && (
+                                                    <button 
+                                                        className="btn btn-secondary"
+                                                        style={{fontSize: '0.85rem', padding: '0.5rem 1rem'}}
+                                                        onClick={() => setActiveTab('notas')}
+                                                    >
+                                                        Ver todas
+                                                    </button>
+                                                )}
+                                                <button 
+                                                    className="btn"
+                                                    style={{fontSize: '0.85rem', padding: '0.5rem 1rem'}}
+                                                    onClick={() => {
+                                                        setNuevaNota({ cliente: selectedCliente.nombre, texto: '' });
+                                                        setActiveTab('notas');
+                                                    }}
+                                                >
+                                                    ✍️ Agregar Nota
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        {notasCliente.length === 0 ? (
+                                            <p style={{color: 'var(--text-muted)', textAlign: 'center', padding: '2rem', background: 'var(--bg-light)', borderRadius: '8px'}}>
+                                                No hay notas para este cliente
+                                            </p>
+                                        ) : (
+                                            <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
+                                                {notasCliente.slice(0, 5).map((nota) => (
+                                                    <div key={nota.id} className="nota-item" style={{marginBottom: 0}}>
+                                                        <div className="nota-header">
+                                                            <span className="nota-fecha">{nota.fecha}</span>
+                                                        </div>
+                                                        <div className="nota-texto" style={{fontSize: '0.9rem'}}>
+                                                            {nota.texto.length > 150 ? `${nota.texto.substring(0, 150)}...` : nota.texto}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })()}
+
+                            {asanaData && (
+                                <div className="asana-panel">
+                                    <h3 className="section-title">📊 Dashboard Asana</h3>
+                                    
+                                    <div className="asana-stats">
+                                        {Object.entries(asanaData.sections).map(([section, count]) => (
+                                            <div key={section} className="asana-stat">
+                                                <div className="asana-stat-number">{count}</div>
+                                                <div className="asana-stat-label">{section}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <h3 className="section-title" style={{marginTop: '1.5rem'}}>📋 Actividad Reciente (Últimos 4 meses)</h3>
+                                    <div className="task-list scrollbar">
+                                        {asanaData.tasks
+                                            .filter(task => {
+                                                const taskDate = new Date(task.created_at);
+                                                const fourMonthsAgo = new Date();
+                                                fourMonthsAgo.setMonth(fourMonthsAgo.getMonth() - 4);
+                                                return taskDate >= fourMonthsAgo;
+                                            })
+                                            .map(task => (
+                                                <div key={task.gid} className="task-item">
+                                                    <div className="task-name">{task.name}</div>
+                                                    <div className="task-meta">
+                                                        <span>📅 {new Date(task.created_at).toLocaleDateString('es-MX')}</span>
+                                                        <span>📌 {task.memberships?.[0]?.section?.name || 'Sin Sección'}</span>
+                                                        {task.completed && <span style={{color: 'var(--success)'}}>✅ Completado</span>}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <>
+                            {isLoading ? (
+                                <div className="loading">Cargando clientes...</div>
+                            ) : (
+                                <div className="grid">
+                                    {filteredClientes.map((cliente, idx) => {
+                                        const phoneNumber = cliente.celular !== 'N/A' ? cliente.celular : (cliente.telFijo !== 'N/A' ? cliente.telFijo : null);
+                                        return (
+                                            <div key={idx} className="card" onClick={() => setSelectedCliente(cliente)}>
+                                                {phoneNumber && (
+                                                    <a 
+                                                        href={`tel:${phoneNumber.replace(/[^0-9+]/g, '')}`}
+                                                        className="call-btn"
+                                                        onClick={(e) => e.stopPropagation()}
+                                                        title={`Llamar a ${phoneNumber}`}
+                                                    >
+                                                        📞
+                                                    </a>
+                                                )}
+                                                {!phoneNumber && (
+                                                    <div 
+                                                        className="call-btn call-btn-disabled"
+                                                        title="Sin teléfono"
+                                                    >
+                                                        📞
+                                                    </div>
+                                                )}
+                                                <h3 className="card-title">{cliente.nombre}</h3>
+                                                <div className="card-title-bar"></div>
+                                                <p className="card-subtitle">{cliente.sector}</p>
+                                            <div className="info-row">
+                                                <span className="info-label">📍 Zona:</span>
+                                                <span>{cliente.zona}</span>
+                                            </div>
+                                            <div className="info-row">
+                                                <span className="info-label">👤 Responsable:</span>
+                                                <span>{cliente.responsable}</span>
+                                            </div>
+                                            <div className="info-row">
+                                                <span className="info-label">📦 Productos:</span>
+                                                <span>{cliente.productos.length}</span>
+                                            </div>
+                                            <div style={{marginTop: '0.75rem'}}>
+                                                <span className={`status-badge ${cliente.status && cliente.status.toLowerCase().includes('activo') ? 'status-activo' : 'status-inactivo'}`}>
+                                                    {cliente.status}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        );
+                                    })}
+                                </div>
+                            )}
+
+                            {filteredClientes.length === 0 && !isLoading && (
+                                <div className="empty-state">
+                                    <div className="empty-state-icon">🔍</div>
+                                    <p>No se encontraron clientes</p>
+                                </div>
+                            )}
+                        </>
+                    )}
+                </>
+            );
+
+            // Función para obtener clientes que compran un color específico
+            const getClientesPorColor = (clave) => {
+                if (!clave) return [];
+                
+                return clientes.filter(cliente => {
+                    if (!cliente.productos || cliente.productos.length === 0) return false;
+                    
+                    return cliente.productos.some(prod => {
+                        const nombreProd = (prod.nombre || '').trim().toLowerCase();
+                        const claveSearch = clave.trim().toLowerCase();
+                        
+                        // Buscar coincidencia exacta o parcial
+                        return nombreProd.includes(claveSearch) || claveSearch.includes(nombreProd);
+                    });
+                }).map(cliente => ({
+                    nombre: cliente.nombre,
+                    cp: cliente.cp,
+                    zona: cliente.zona,
+                    sector: cliente.sector,
+                    volumen: cliente.productos.find(p => 
+                        (p.nombre || '').toLowerCase().includes(clave.toLowerCase())
+                    )?.volumen || 'N/A'
+                }));
+            };
+
+            const renderProductos = () => (
+                <>
+                    <div className="search-container">
+                        <span className="search-icon">🔍</span>
+                        <input
+                            type="text"
+                            className="search-input"
+                            placeholder="Buscar por clave, color, resina..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                    </div>
+
+                    <h3 className="section-title">📦 Catálogo Técnico ({filteredProductos.length} productos)</h3>
+                    
+                    <div style={{maxHeight: '600px', overflowY: 'auto'}} className="scrollbar">
+                        <table className="product-table">
+                            <thead>
+                                <tr>
+                                    <th>Clave</th>
+                                    <th>Color Descripción</th>
+                                    <th>Pantone/HEX</th>
+                                    <th>Resina</th>
+                                    <th>Acabado</th>
+                                    <th>Certificación</th>
+                                    <th>Aplicación</th>
+                                    <th>Documentos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredProductos.slice(0, 100).map((prod, idx) => {
+                                    const docLinks = getDocumentLinks(prod.Clave || '');
+                                    return (
+                                        <tr key={idx}>
+                                            <td 
+                                                style={{
+                                                    fontFamily: 'IBM Plex Mono, monospace', 
+                                                    color: 'var(--aricolor-blue)', 
+                                                    fontWeight: '600',
+                                                    cursor: 'pointer',
+                                                    textDecoration: 'underline',
+                                                    transition: 'all 0.2s'
+                                                }}
+                                                onClick={() => {
+                                                    const clientesCompran = getClientesPorColor(prod.Clave);
+                                                    setClientesModalColor({
+                                                        clave: prod.Clave,
+                                                        color: prod.Color,
+                                                        clientes: clientesCompran
+                                                    });
+                                                }}
+                                                onMouseEnter={(e) => e.target.style.opacity = '0.7'}
+                                                onMouseLeave={(e) => e.target.style.opacity = '1'}
+                                                title="Click para ver clientes que compran este color"
+                                            >
+                                                {prod.Clave} 👥
+                                            </td>
+                                            <td>{prod.Color}</td>
+                                            <td>
+                                                <ColorSwatch productName={prod.Clave} />
+                                            </td>
+                                            <td style={{fontSize: '0.85rem'}}>{prod.Resina}</td>
+                                            <td>{prod.Acabado}</td>
+                                            <td style={{fontSize: '0.85rem'}}>{prod.Certificacion}</td>
+                                            <td>{prod.Aplicacion}</td>
+                                            <td>
+                                                <div className="doc-buttons">
+                                                    {docLinks.ht ? (
+                                                        <a href={docLinks.ht} target="_blank" className="doc-btn doc-btn-ht" title="Ver Hoja Técnica">
+                                                            📄 HT
+                                                        </a>
+                                                    ) : (
+                                                        <span className="doc-btn doc-btn-unavailable" title="HT no disponible">
+                                                            📄 HT
+                                                        </span>
+                                                    )}
+                                                    {docLinks.hds ? (
+                                                        <a href={docLinks.hds} target="_blank" className="doc-btn doc-btn-hds" title="Ver Hoja de Seguridad">
+                                                            📄 HDS
+                                                        </a>
+                                                    ) : (
+                                                        <span className="doc-btn doc-btn-unavailable" title="HDS no disponible">
+                                                            📄 HDS
+                                                        </span>
+                                                    )}
+                                                    <button onClick={() => sendDocByEmail(prod.Clave, 'ht')} className="doc-btn doc-btn-email" title="Enviar por Email">
+                                                        📧
+                                                    </button>
+                                                    <button onClick={() => sendDocByWhatsApp(prod.Clave, 'ht')} className="doc-btn doc-btn-whatsapp" title="Enviar por WhatsApp">
+                                                        💬
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                        {filteredProductos.length > 100 && (
+                            <p style={{textAlign: 'center', color: 'var(--text-muted)', padding: '1rem'}}>
+                                Mostrando 100 de {filteredProductos.length} resultados. Refina tu búsqueda para ver más.
+                            </p>
+                        )}
+                    </div>
+                </>
+            );
+
+            const renderMercado = () => (
+                <div className="detail-panel">
+                    <h2 className="section-title">📊 Análisis de Mercado</h2>
+                    <p style={{color: 'var(--text-muted)', marginBottom: '2rem'}}>
+                        Perspectivas y datos del mercado mexicano de polímeros y pigmentos
+                    </p>
+
+                    <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem'}}>
+                        <div className="config-panel">
+                            <h3 className="section-title">Polímeros en México</h3>
+                            <p style={{color: 'var(--text)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                                <strong>Polietileno:</strong> Braskem Idesa único productor integrado (1.05M ton/año). Dow líder en tecnología y distribución.
+                            </p>
+                            <p style={{marginTop: '1rem', color: 'var(--text)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                                <strong>Polipropileno:</strong> Indelpro (Alpek) único productor nacional. Mercado complementado con importaciones.
+                            </p>
+                            <p style={{marginTop: '1rem', color: 'var(--text)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                                <strong>PVC:</strong> Orbia (Vestolit) líder con múltiples plantas. Capacidad total >700K ton/año en México.
+                            </p>
+                        </div>
+
+                        <div className="config-panel">
+                            <h3 className="section-title">Recubrimientos</h3>
+                            <p style={{color: 'var(--text)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                                <strong>Arquitectónicos:</strong> PPG Comex domina con ~50% mercado. Sherwin-Williams segundo jugador importante.
+                            </p>
+                            <p style={{marginTop: '1rem', color: 'var(--text)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                                <strong>Industriales:</strong> BASF líder en automotriz OEM. PPG y Sherwin-Williams fuertes en general industrial.
+                            </p>
+                            <p style={{marginTop: '1rem', color: 'var(--text)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                                <strong>Capacidad:</strong> PPG Comex produce 1.3-1.5M litros/día en temporada alta.
+                            </p>
+                        </div>
+
+                        <div className="config-panel">
+                            <h3 className="section-title">Pigmentos</h3>
+                            <p style={{color: 'var(--text)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                                <strong>Líderes:</strong> Clariant especializada en preparaciones pigmentarias. BASF y PPG integrados en recubrimientos.
+                            </p>
+                            <p style={{marginTop: '1rem', color: 'var(--text)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                                <strong>Tecnología:</strong> México produce preparaciones acuosas y solvente de última generación.
+                            </p>
+                            <p style={{marginTop: '1rem', color: 'var(--text)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                                <strong>Aplicaciones:</strong> Automotriz, construcción, impresión, plásticos, textiles.
+                            </p>
+                        </div>
+
+                        <div className="config-panel">
+                            <h3 className="section-title">Tendencias Clave</h3>
+                            <div style={{color: 'var(--text)', lineHeight: '1.9', fontSize: '0.95rem'}}>
+                                <div>▸ Economía circular: Inversión en reciclado (PET, PE, PP)</div>
+                                <div>▸ Sustentabilidad: Productos bajos en VOC, bio-basados</div>
+                                <div>▸ Nearshoring: Expansión de capacidad productiva</div>
+                                <div>▸ Tecnología: Metalocenos, polímeros especiales</div>
+                                <div>▸ Certificaciones: ISO 9001, 14001, IATF 16949</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            const renderBusquedaIA = () => {
+                const [query, setQuery] = useState('');
+                const [results, setResults] = useState(null);
+                const [searching, setSearching] = useState(false);
+
+                const handleSearch = async () => {
+                    if (!query.trim()) return;
+                    
+                    setSearching(true);
+                    const searchLower = query.toLowerCase();
+                    
+                    // Buscar en clientes
+                    const clientesEncontrados = clientes.filter(c => 
+                        (c.nombre && c.nombre.toLowerCase().includes(searchLower)) ||
+                        (c.sector && c.sector.toLowerCase().includes(searchLower)) ||
+                        (c.zona && c.zona.toLowerCase().includes(searchLower)) ||
+                        (c.productos && c.productos.some(p => p.nombre && p.nombre.toLowerCase().includes(searchLower)))
+                    ).slice(0, 5);
+
+                    // Buscar en productos
+                    const productosEncontrados = productos.filter(p =>
+                        (p.Clave && p.Clave.toLowerCase().includes(searchLower)) ||
+                        (p.Color && p.Color.toLowerCase().includes(searchLower)) ||
+                        (p.Resina && p.Resina.toLowerCase().includes(searchLower)) ||
+                        (p.Aplicacion && p.Aplicacion.toLowerCase().includes(searchLower))
+                    ).slice(0, 10);
+
+                    setResults({
+                        clientes: clientesEncontrados,
+                        productos: productosEncontrados,
+                        query: query
+                    });
+                    setSearching(false);
+                };
+
+                return (
+                    <div className="detail-panel">
+                        <h2 className="section-title">🔍 Búsqueda Avanzada</h2>
+                        <p style={{color: 'var(--text-muted)', marginBottom: '2rem'}}>
+                            Busca en toda la base de datos: clientes, productos, sectores, y más
+                        </p>
+
+                        <div className="search-container">
+                            <span className="search-icon">🤖</span>
+                            <input
+                                type="text"
+                                className="search-input"
+                                placeholder="Ej: Buscar cliente por producto, sector, zona..."
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                            />
+                        </div>
+
+                        <button 
+                            className="btn" 
+                            onClick={handleSearch}
+                            disabled={searching || !query.trim()}
+                        >
+                            {searching ? 'Buscando...' : '🔍 Buscar'}
+                        </button>
+
+                        {results && (
+                            <div style={{marginTop: '2rem'}}>
+                                <h3 className="section-title">Resultados para: "{results.query}"</h3>
+                                
+                                {results.clientes.length > 0 && (
+                                    <div style={{marginBottom: '2rem'}}>
+                                        <h4 style={{color: 'var(--aricolor-blue)', marginBottom: '1rem'}}>
+                                            👥 Clientes ({results.clientes.length})
+                                        </h4>
+                                        <div className="grid" style={{gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))'}}>
+                                            {results.clientes.map((cliente, idx) => (
+                                                <div key={idx} className="card" onClick={() => {setSelectedCliente(cliente); setActiveTab('clientes');}}>
+                                                    <h3 className="card-title">{cliente.nombre}</h3>
+                                                    <div className="card-title-bar"></div>
+                                                    <p className="card-subtitle">{cliente.sector}</p>
+                                                    <div className="info-row">
+                                                        <span className="info-label">📦 Productos:</span>
+                                                        <span>{cliente.productos.length}</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {results.productos.length > 0 && (
+                                    <div>
+                                        <h4 style={{color: 'var(--aricolor-blue)', marginBottom: '1rem'}}>
+                                            📦 Productos ({results.productos.length})
+                                        </h4>
+                                        <table className="product-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Clave</th>
+                                                    <th>Color</th>
+                                                    <th>Resina</th>
+                                                    <th>Aplicación</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {results.productos.map((prod, idx) => (
+                                                    <tr key={idx}>
+                                                        <td style={{fontFamily: 'IBM Plex Mono, monospace', color: 'var(--aricolor-blue)', fontWeight: '600'}}>{prod.Clave}</td>
+                                                        <td>{prod.Color}</td>
+                                                        <td style={{fontSize: '0.85rem'}}>{prod.Resina}</td>
+                                                        <td>{prod.Aplicacion}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                )}
+
+                                {results.clientes.length === 0 && results.productos.length === 0 && (
+                                    <div className="empty-state">
+                                        <div className="empty-state-icon">🔍</div>
+                                        <p>No se encontraron resultados</p>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                        {!results && (
+                            <div style={{marginTop: '2rem'}}>
+                                <h3 className="section-title">💡 Ejemplos de Búsqueda</h3>
+                                <div style={{color: 'var(--text-muted)', lineHeight: '1.9', fontSize: '0.95rem'}}>
+                                    <div>▸ Buscar clientes del sector "Bolsas"</div>
+                                    <div>▸ Productos con resina "PP"</div>
+                                    <div>▸ Clientes en zona "CDMX"</div>
+                                    <div>▸ Productos color "Azul"</div>
+                                    <div>▸ Cualquier código de producto (MB AM-1234)</div>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                );
+            };
+
+            const renderNotas = () => (
+                <div className="detail-panel">
+                    <h2 className="section-title">📝 Cuaderno de Notas</h2>
+                    <p style={{color: 'var(--text-muted)', marginBottom: '2rem'}}>
+                        Registra notas y comentarios importantes sobre clientes
+                    </p>
+
+                    {/* Formulario para nueva nota */}
+                    <div className="nota-form">
+                        <h3 className="section-title" style={{fontSize: '1.1rem', marginBottom: '1rem'}}>
+                            ✍️ Nueva Nota
+                        </h3>
+                        
+                        <select
+                            className="nota-select"
+                            value={nuevaNota.cliente}
+                            onChange={(e) => setNuevaNota({...nuevaNota, cliente: e.target.value})}
+                        >
+                            <option value="">Seleccionar cliente...</option>
+                            {clientes.map((c, idx) => (
+                                <option key={idx} value={c.nombre}>{c.nombre}</option>
+                            ))}
+                        </select>
+
+                        <textarea
+                            className="nota-textarea"
+                            placeholder="Escribe tu nota aquí..."
+                            value={nuevaNota.texto}
+                            onChange={(e) => setNuevaNota({...nuevaNota, texto: e.target.value})}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' && e.ctrlKey) {
+                                    e.preventDefault();
+                                    guardarNota();
+                                }
+                            }}
+                        />
+
+                        <button 
+                            className="btn"
+                            onClick={guardarNota}
+                            disabled={!nuevaNota.cliente || !nuevaNota.texto.trim()}
+                        >
+                            ✅ Guardar Nota
+                        </button>
+                        <p style={{color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.5rem'}}>
+                            Tip: Ctrl + Enter para guardar rápido
+                        </p>
+                    </div>
+
+                    {/* Lista de notas */}
+                    <h3 className="section-title">📚 Historial de Notas ({notas.length})</h3>
+                    
+                    {notas.length === 0 ? (
+                        <div className="empty-state">
+                            <div className="empty-state-icon">📝</div>
+                            <p>No hay notas registradas</p>
+                        </div>
+                    ) : (
+                        <div style={{maxHeight: '600px', overflowY: 'auto'}} className="scrollbar">
+                            {notas.map((nota) => (
+                                <div key={nota.id} className="nota-item">
+                                    <div className="nota-header">
+                                        <span className="nota-cliente">{nota.cliente}</span>
+                                        <span className="nota-fecha">{nota.fecha}</span>
+                                    </div>
+                                    <div className="nota-texto">{nota.texto}</div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            );
+
+            const renderConfiguracion = () => (
+                <div className="detail-panel">
+                    <h2 className="section-title">⚙️ Configuración</h2>
+                    
+                    <div className="config-panel">
+                        <h3 className="section-title">Conexiones Activas</h3>
+                        <div className="config-row">
+                            <span className="config-label">📊 Google Sheets</span>
+                            <span className="config-value">{csvUrl ? '✅ Conectado (actualización automática)' : '❌ No conectado'}</span>
+                        </div>
+                        <div className="config-row">
+                            <span className="config-label">🎯 Asana API</span>
+                            <span className="config-value">{asanaToken ? '✅ Conectado' : '❌ No conectado'}</span>
+                        </div>
+                        <div className="config-row">
+                            <span className="config-label">📦 Catálogo Productos</span>
+                            <span className="config-value">{productos.length} items</span>
+                        </div>
+                        <div className="config-row">
+                            <span className="config-label">🏢 Clientes Cargados</span>
+                            <span className="config-value">{clientes.length} clientes</span>
+                        </div>
+                    </div>
+
+                    {/* LOG de accesos - Solo visible para Admin */}
+                    {currentUser === 'Admin' && (
+                        <>
+                            {/* Whitelist de IPs Autorizadas */}
+                            <div style={{marginTop: '2rem'}}>
+                                <div className="config-panel">
+                                    <h3 className="section-title">🔐 IPs Autorizadas (Whitelist)</h3>
+                                    <p style={{color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.9rem'}}>
+                                        Control de acceso por ubicación (Admin siempre autorizado)
+                                    </p>
+                                    <div style={{
+                                        background: '#FFF3CD',
+                                        border: '1px solid #FFC107',
+                                        borderRadius: '6px',
+                                        padding: '0.75rem 1rem',
+                                        marginBottom: '1rem',
+                                        fontSize: '0.85rem',
+                                        color: '#856404'
+                                    }}>
+                                        <strong>ℹ️ Funcionamiento:</strong>
+                                        <div style={{marginTop: '0.5rem', lineHeight: '1.6'}}>
+                                            • <strong>Lista vacía:</strong> Todos los usuarios pueden acceder desde cualquier IP<br/>
+                                            • <strong>Lista con IPs:</strong> Solo usuarios desde IPs autorizadas pueden acceder
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Mostrar IP actual */}
+                                    {currentIp && (
+                                        <div style={{
+                                            background: 'var(--bg-light)',
+                                            border: '1px solid var(--border)',
+                                            borderRadius: '8px',
+                                            padding: '0.75rem 1rem',
+                                            marginBottom: '1rem',
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center'
+                                        }}>
+                                            <div>
+                                                <span style={{fontSize: '0.85rem', color: 'var(--text-muted)'}}>
+                                                    📍 Tu IP actual: 
+                                                </span>
+                                                <span style={{
+                                                    fontFamily: 'IBM Plex Mono, monospace',
+                                                    fontWeight: '600',
+                                                    color: 'var(--aricolor-blue)',
+                                                    marginLeft: '0.5rem',
+                                                    fontSize: '0.95rem'
+                                                }}>
+                                                    {currentIp}
+                                                </span>
+                                                {ipWhitelist.includes(currentIp) && (
+                                                    <span style={{marginLeft: '0.5rem', color: 'var(--success)'}}>
+                                                        ✅ Autorizada
+                                                    </span>
+                                                )}
+                                            </div>
+                                            {!ipWhitelist.includes(currentIp) && (
+                                                <button 
+                                                    className="btn btn-secondary"
+                                                    style={{fontSize: '0.85rem', padding: '0.4rem 0.8rem'}}
+                                                    onClick={() => {
+                                                        setNewIp(currentIp);
+                                                        setTimeout(() => agregarIP(), 100);
+                                                    }}
+                                                >
+                                                    ⚡ Agregar Esta IP
+                                                </button>
+                                            )}
+                                        </div>
+                                    )}
+                                    
+                                    <div style={{display: 'flex', gap: '0.5rem', marginBottom: '1rem'}}>
+                                        <input
+                                            type="text"
+                                            className="input-field"
+                                            placeholder="Ej: 192.168.1.1 (solo IPv4)"
+                                            value={newIp}
+                                            onChange={(e) => setNewIp(e.target.value)}
+                                            onKeyPress={(e) => e.key === 'Enter' && agregarIP()}
+                                            style={{flex: 1}}
+                                        />
+                                        <button className="btn" onClick={agregarIP}>
+                                            ➕ Agregar IP
+                                        </button>
+                                    </div>
+
+                                    {ipWhitelist.length === 0 ? (
+                                        <p style={{color: 'var(--text-muted)', textAlign: 'center', padding: '2rem', background: 'var(--bg-light)', borderRadius: '8px'}}>
+                                            No hay IPs autorizadas. Todos los accesos no-Admin serán bloqueados.
+                                        </p>
+                                    ) : (
+                                        <div style={{display: 'flex', flexWrap: 'wrap', gap: '0.5rem'}}>
+                                            {ipWhitelist.map((ip, idx) => (
+                                                <div key={idx} style={{
+                                                    background: 'var(--bg-light)',
+                                                    border: '1px solid var(--border)',
+                                                    borderRadius: '6px',
+                                                    padding: '0.5rem 0.75rem',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '0.5rem'
+                                                }}>
+                                                    <span style={{fontFamily: 'IBM Plex Mono, monospace', fontSize: '0.9rem'}}>
+                                                        {ip}
+                                                    </span>
+                                                    <button
+                                                        onClick={() => eliminarIP(ip)}
+                                                        style={{
+                                                            background: 'transparent',
+                                                            border: 'none',
+                                                            color: '#FF6B35',
+                                                            cursor: 'pointer',
+                                                            fontSize: '1.2rem',
+                                                            padding: 0
+                                                        }}
+                                                        title="Eliminar IP"
+                                                    >
+                                                        ✕
+                                                    </button>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Gestión de Usuarios */}
+                            <div style={{marginTop: '2rem'}}>
+                                <div className="config-panel">
+                                    <h3 className="section-title">👥 Gestión de Usuarios</h3>
+                                    <p style={{color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.9rem'}}>
+                                        Agregar, eliminar y administrar usuarios de la plataforma
+                                    </p>
+                                    
+                                    {/* Formulario para agregar usuario */}
+                                    <div style={{background: 'var(--bg-light)', padding: '1rem', borderRadius: '8px', marginBottom: '1.5rem'}}>
+                                        <h4 style={{fontSize: '0.95rem', fontWeight: '600', marginBottom: '0.75rem'}}>➕ Agregar Nuevo Usuario</h4>
+                                        <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '0.5rem', alignItems: 'end'}}>
+                                            <div>
+                                                <label style={{fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem', display: 'block'}}>
+                                                    Nombre
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="input-field"
+                                                    placeholder="Ej: Juan Pérez"
+                                                    value={nuevoUsuario.nombre}
+                                                    onChange={(e) => setNuevoUsuario({...nuevoUsuario, nombre: e.target.value})}
+                                                    style={{marginBottom: 0}}
+                                                />
+                                            </div>
+                                            <div>
+                                                <label style={{fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.25rem', display: 'block'}}>
+                                                    Contraseña
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    className="input-field"
+                                                    placeholder="Ej: Juan2026"
+                                                    value={nuevoUsuario.password}
+                                                    onChange={(e) => setNuevoUsuario({...nuevoUsuario, password: e.target.value})}
+                                                    style={{marginBottom: 0}}
+                                                />
+                                            </div>
+                                            <button className="btn" onClick={agregarUsuario}>
+                                                ✅ Crear Usuario
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* Lista de usuarios */}
+                                    <h4 style={{fontSize: '0.95rem', fontWeight: '600', marginBottom: '0.75rem'}}>
+                                        📋 Usuarios Registrados ({Object.keys(usuarios).length})
+                                    </h4>
+                                    <table className="product-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Contraseña</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {Object.entries(usuarios).map(([password, nombre]) => (
+                                                <tr key={password}>
+                                                    <td style={{fontWeight: '600', color: nombre === 'Admin' ? 'var(--aricolor-blue)' : 'var(--text-dark)'}}>
+                                                        {nombre} {nombre === 'Admin' && '👑'}
+                                                    </td>
+                                                    <td style={{fontFamily: 'IBM Plex Mono, monospace', fontSize: '0.9rem'}}>
+                                                        {password}
+                                                    </td>
+                                                    <td>
+                                                        {nombre !== 'Admin' && (
+                                                            <button
+                                                                onClick={() => eliminarUsuario(password, nombre)}
+                                                                className="btn btn-secondary"
+                                                                style={{fontSize: '0.8rem', padding: '0.4rem 0.8rem', background: 'rgba(255, 107, 53, 0.1)', color: '#FF6B35'}}
+                                                            >
+                                                                🗑️ Eliminar
+                                                            </button>
+                                                        )}
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            {/* Intentos de Acceso Bloqueados */}
+                            {(() => {
+                                const intentosBloqueados = JSON.parse(localStorage.getItem('aricolor_intentos_bloqueados') || '[]');
+                                
+                                if (intentosBloqueados.length === 0) return null;
+                                
+                                return (
+                                    <div style={{marginTop: '2rem'}}>
+                                        <div className="config-panel" style={{borderLeft: '4px solid #FF6B35'}}>
+                                            <h3 className="section-title">🚫 Intentos de Acceso Bloqueados</h3>
+                                            <p style={{color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.9rem'}}>
+                                                Accesos desde IPs no autorizadas (últimos 30 días)
+                                            </p>
+                                            
+                                            <div style={{maxHeight: '300px', overflowY: 'auto'}} className="scrollbar">
+                                                <table className="product-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Usuario</th>
+                                                            <th>Fecha</th>
+                                                            <th>IP</th>
+                                                            <th>Ciudad</th>
+                                                            <th>País</th>
+                                                            <th>Dispositivo</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {intentosBloqueados.slice().reverse().filter(i => i.timestamp > Date.now() - 2592000000).map((intento, idx) => (
+                                                            <tr key={idx} style={{background: 'rgba(255, 107, 53, 0.05)'}}>
+                                                                <td style={{fontWeight: '600', color: '#FF6B35'}}>{intento.usuario}</td>
+                                                                <td style={{fontSize: '0.85rem'}}>{intento.fecha}</td>
+                                                                <td style={{fontSize: '0.8rem', fontFamily: 'IBM Plex Mono, monospace'}}>{intento.ip}</td>
+                                                                <td style={{fontSize: '0.85rem'}}>{intento.city}</td>
+                                                                <td style={{fontSize: '0.85rem'}}>{intento.country}</td>
+                                                                <td style={{fontSize: '0.85rem'}}>{intento.dispositivo}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })()}
+
+                            {/* Sección de Alertas */}
+                            {(() => {
+                                const alertas = JSON.parse(localStorage.getItem('aricolor_alertas') || '[]');
+                                const alertasPendientes = alertas.filter(a => a.timestamp > Date.now() - 604800000); // Últimos 7 días
+                                
+                                if (alertasPendientes.length === 0) return null;
+                                
+                                return (
+                                    <div style={{marginTop: '2rem', marginBottom: '2rem'}}>
+                                        <div className="config-panel" style={{borderLeft: '4px solid #FF6B35'}}>
+                                            <h3 className="section-title">🚨 Alertas de Seguridad</h3>
+                                            <p style={{color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.9rem'}}>
+                                                Accesos sospechosos detectados en los últimos 7 días
+                                            </p>
+                                            
+                                            <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
+                                                {alertasPendientes.slice().reverse().map((alerta, idx) => (
+                                                    <div key={idx} style={{
+                                                        background: 'rgba(255, 107, 53, 0.1)',
+                                                        border: '1px solid rgba(255, 107, 53, 0.3)',
+                                                        borderRadius: '8px',
+                                                        padding: '1rem'
+                                                    }}>
+                                                        <div>
+                                                            <div style={{fontWeight: '600', color: '#FF6B35', marginBottom: '0.25rem'}}>
+                                                                {alerta.tipo === 'IP_NUEVA' && '🆕 IP Nueva'}
+                                                                {alerta.tipo === 'PAIS_EXTRANJERO' && '🌍 País Extranjero'}
+                                                                {alerta.tipo === 'MISMA_IP' && '👥 Múltiples Usuarios'}
+                                                            </div>
+                                                            <div style={{fontSize: '0.9rem', color: 'var(--text-dark)'}}>
+                                                                {alerta.mensaje}
+                                                            </div>
+                                                            <div style={{fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.25rem'}}>
+                                                                {alerta.fecha}
+                                                            </div>
+                                                            <div style={{fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.5rem', fontFamily: 'IBM Plex Mono, monospace'}}>
+                                                                IP: {alerta.detalles.ip} · {alerta.detalles.city}, {alerta.detalles.country} · {alerta.detalles.dispositivo} · {alerta.detalles.navegador}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })()}
+
+                            <div style={{marginTop: '2rem'}}>
+                                <div className="config-panel">
+                                <h3 className="section-title">📊 Log de Accesos</h3>
+                                <p style={{color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.9rem'}}>
+                                    Historial de accesos a la plataforma
+                                </p>
+                                
+                                {(() => {
+                                    const accessLog = JSON.parse(localStorage.getItem('aricolor_access_log') || '[]');
+                                    const stats = accessLog.reduce((acc, entry) => {
+                                        acc[entry.usuario] = (acc[entry.usuario] || 0) + 1;
+                                        return acc;
+                                    }, {});
+                                    
+                                    return (
+                                        <>
+                                            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginBottom: '1.5rem'}}>
+                                                {Object.entries(stats).map(([usuario, count]) => (
+                                                    <div key={usuario} style={{
+                                                        background: 'var(--bg-light)',
+                                                        padding: '1rem',
+                                                        borderRadius: '8px',
+                                                        border: '1px solid var(--border)',
+                                                        textAlign: 'center'
+                                                    }}>
+                                                        <div style={{fontSize: '2rem', fontWeight: '700', color: 'var(--aricolor-blue)', marginBottom: '0.25rem'}}>
+                                                            {count}
+                                                        </div>
+                                                        <div style={{fontSize: '0.85rem', color: 'var(--text-muted)'}}>
+                                                            {usuario}
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            
+                                            <div style={{maxHeight: '300px', overflowY: 'auto'}} className="scrollbar">
+                                                <table className="product-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Usuario</th>
+                                                            <th>Fecha y Hora</th>
+                                                            <th>IP</th>
+                                                            <th>Ciudad</th>
+                                                            <th>País</th>
+                                                            <th>Dispositivo</th>
+                                                            <th>Navegador</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {accessLog.slice().reverse().slice(0, 50).map((entry, idx) => (
+                                                            <tr key={idx} style={{
+                                                                background: entry.countryCode && entry.countryCode !== 'MX' ? 'rgba(255, 107, 53, 0.1)' : 'transparent'
+                                                            }}>
+                                                                <td style={{fontWeight: '600', color: 'var(--aricolor-blue)'}}>{entry.usuario}</td>
+                                                                <td style={{fontSize: '0.85rem'}}>{entry.fecha}</td>
+                                                                <td style={{fontSize: '0.8rem', fontFamily: 'IBM Plex Mono, monospace'}}>{entry.ip || 'N/A'}</td>
+                                                                <td style={{fontSize: '0.85rem'}}>{entry.city || 'N/A'}</td>
+                                                                <td style={{fontSize: '0.85rem'}}>
+                                                                    {entry.country || 'N/A'}
+                                                                    {entry.countryCode && entry.countryCode !== 'MX' && ' 🚨'}
+                                                                </td>
+                                                                <td style={{fontSize: '0.85rem'}}>{entry.dispositivo || 'N/A'}</td>
+                                                                <td style={{fontSize: '0.85rem'}}>{entry.navegador || 'N/A'}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </>
+                                    );
+                                })()}
+                            </div>
+                        </div>
+                        </>
+                    )}
+
+                    <div style={{marginTop: '2rem'}}>
+                        <h3 className="section-title">🔄 Recargar Datos</h3>
+                        <p style={{color: 'var(--text-muted)', marginBottom: '1rem', fontSize: '0.9rem'}}>
+                            Los datos se cargan automáticamente al abrir la plataforma.<br/>
+                            Si actualizaste tu Google Sheet, recarga manualmente:
+                        </p>
+                        
+                        <button className="btn btn-secondary" onClick={reloadCSVData} disabled={!csvUrl}>
+                            🔄 Recargar desde Google Sheets
+                        </button>
+                    </div>
+
+                    <div style={{marginTop: '2rem'}}>
+                        <button className="btn" style={{background: 'rgba(255, 107, 53, 0.2)', color: 'var(--accent-warm)'}} onClick={resetConfiguration}>
+                            🔌 Desconectar y Borrar Configuración
+                        </button>
+                    </div>
+
+                    <div style={{marginTop: '2rem', padding: '1.5rem', background: 'rgba(0, 217, 255, 0.05)', borderRadius: '10px', border: '1px solid var(--border)'}}>
+                        <h3 className="section-title">ℹ️ Información</h3>
+                        <p style={{color: 'var(--text-muted)', lineHeight: '1.7', fontSize: '0.95rem'}}>
+                            <strong>Actualización automática:</strong> Cada vez que abres la plataforma, se cargan los datos más recientes de tu Google Sheet.<br/><br/>
+                            <strong>Privacidad:</strong> Tu configuración está guardada únicamente en el localStorage de tu navegador. Nadie más tiene acceso.<br/><br/>
+                            <strong>Sincronización:</strong> Los cambios que hagas en Google Sheets se reflejarán automáticamente al abrir la plataforma o al hacer click en "Recargar".
+                        </p>
+                    </div>
+                </div>
+            );
+
+            return (
+                <div className="app-container">
+                    <div className="header">
+                        <div className="header-content">
+                            <div className="logo-container">
+                                <img src="logoari2013.jpg" alt="ARICOLOR Logo" />
+                            </div>
+                            <div style={{flex: 1}}>
+                                <h1>INTEL·ARICOLOR·MX</h1>
+                                <p className="header-subtitle">Centro de Inteligencia Comercial · Polímeros & Pigmentos México</p>
+                            </div>
+                            <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+                                <div style={{textAlign: 'right'}}>
+                                    <div style={{fontSize: '0.9rem', fontWeight: '600', color: 'var(--aricolor-blue)'}}>
+                                        {currentUser}
+                                    </div>
+                                    <div style={{fontSize: '0.75rem', color: 'var(--text-muted)'}}>
+                                        Sesión activa
+                                    </div>
+                                </div>
+                                <button 
+                                    onClick={handleLogout}
+                                    style={{
+                                        padding: '0.5rem 1rem',
+                                        background: 'transparent',
+                                        border: '1px solid var(--border)',
+                                        borderRadius: '6px',
+                                        color: 'var(--text-dark)',
+                                        cursor: 'pointer',
+                                        fontSize: '0.85rem',
+                                        fontFamily: 'Outfit, sans-serif',
+                                        transition: 'all 0.2s'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.target.style.background = 'var(--bg-light)';
+                                        e.target.style.borderColor = 'var(--aricolor-blue)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.target.style.background = 'transparent';
+                                        e.target.style.borderColor = 'var(--border)';
+                                    }}
+                                >
+                                    🚪 Cerrar Sesión
+                                </button>
+                            </div>
+                        </div>
+                        <div className="rainbow-bar"></div>
+                    </div>
+
+                    <div className="nav-tabs">
+                        <button className={`nav-tab ${activeTab === 'clientes' ? 'active' : ''}`} onClick={() => { setActiveTab('clientes'); setSearchTerm(''); }}>
+                            🏢 CLIENTES
+                        </button>
+                        <button className={`nav-tab ${activeTab === 'productos' ? 'active' : ''}`} onClick={() => { setActiveTab('productos'); setSearchTerm(''); }}>
+                            📦 PRODUCTOS
+                        </button>
+                        <button className={`nav-tab ${activeTab === 'mercado' ? 'active' : ''}`} onClick={() => setActiveTab('mercado')}>
+                            📊 MERCADO
+                        </button>
+                        <button className={`nav-tab ${activeTab === 'busqueda' ? 'active' : ''}`} onClick={() => setActiveTab('busqueda')}>
+                            🔍 BÚSQUEDA IA
+                        </button>
+                        <button className={`nav-tab ${activeTab === 'notas' ? 'active' : ''}`} onClick={() => setActiveTab('notas')}>
+                            📝 NOTAS
+                        </button>
+                        {currentUser === 'Admin' && (
+                            <button className={`nav-tab ${activeTab === 'config' ? 'active' : ''}`} onClick={() => setActiveTab('config')}>
+                                ⚙️ CONFIG
+                            </button>
+                        )}
+                    </div>
+
+                    <div className="content-panel">
+                        {activeTab === 'clientes' && renderClientes()}
+                        {activeTab === 'productos' && renderProductos()}
+                        {activeTab === 'mercado' && renderMercado()}
+                        {activeTab === 'busqueda' && renderBusquedaIA()}
+                        {activeTab === 'notas' && renderNotas()}
+                        {activeTab === 'config' && renderConfiguracion()}
+                    </div>
+
+                    <div style={{marginTop: 'auto', borderTop: '1px solid var(--border)', background: 'var(--bg-white)'}}>
+                        <div className="rainbow-bar"></div>
+                        <div style={{padding: '1.5rem 2rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem'}}>
+                            © 2026 ARICOLOR - Centro de Inteligencia Comercial · Polímeros & Pigmentos México
+                        </div>
+                    </div>
+
+                    {/* Modal de color */}
+                    {colorModal && (
+                        <div className="color-modal-overlay" onClick={() => setColorModal(null)}>
+                            <div className="color-modal" onClick={(e) => e.stopPropagation()}>
+                                <button className="color-modal-close" onClick={() => setColorModal(null)}>
+                                    ✕
+                                </button>
+                                
+                                <h3 className="section-title" style={{marginBottom: '1rem'}}>
+                                    Información del Color
+                                </h3>
+                                
+                                <div 
+                                    className="color-modal-swatch"
+                                    style={{backgroundColor: `#${colorModal.colorData.hex}`}}
+                                ></div>
+                                
+                                <div className="color-modal-info">
+                                    <div className="color-modal-row">
+                                        <span className="color-modal-label">Producto</span>
+                                        <span className="color-modal-value" style={{fontFamily: 'Outfit', fontSize: '0.95rem'}}>
+                                            {colorModal.productName}
+                                        </span>
+                                    </div>
+                                    
+                                    <div className="color-modal-row">
+                                        <span className="color-modal-label">Código Pantone</span>
+                                        <span className="color-modal-value">
+                                            {colorModal.colorData.pantone}
+                                        </span>
+                                    </div>
+                                    
+                                    <div className="color-modal-row">
+                                        <span className="color-modal-label">Código HEX</span>
+                                        <span className="color-modal-value">
+                                            #{colorModal.colorData.hex}
+                                        </span>
+                                    </div>
+
+                                    {colorModal.colorData.claves_relacionadas && colorModal.colorData.claves_relacionadas.length > 0 && (
+                                        <div className="color-modal-row" style={{flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem'}}>
+                                            <span className="color-modal-label">Claves relacionadas</span>
+                                            <div style={{display: 'flex', flexWrap: 'wrap', gap: '0.5rem'}}>
+                                                {colorModal.colorData.claves_relacionadas.map((clave, idx) => (
+                                                    <span key={idx} style={{
+                                                        padding: '0.25rem 0.5rem',
+                                                        background: 'var(--bg-white)',
+                                                        border: '1px solid var(--border)',
+                                                        borderRadius: '4px',
+                                                        fontSize: '0.75rem',
+                                                        fontFamily: 'IBM Plex Mono, monospace'
+                                                    }}>
+                                                        {clave}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Modal de Clientes por Color */}
+                    {clientesModalColor && (
+                        <div className="color-modal-overlay" onClick={() => setClientesModalColor(null)}>
+                            <div className="color-modal" onClick={(e) => e.stopPropagation()} style={{maxWidth: '700px'}}>
+                                <button className="color-modal-close" onClick={() => setClientesModalColor(null)}>
+                                    ✕
+                                </button>
+                                
+                                <h3 className="section-title" style={{marginBottom: '0.5rem'}}>
+                                    👥 Clientes que compran este color
+                                </h3>
+                                
+                                <div style={{
+                                    background: 'var(--bg-light)',
+                                    padding: '0.75rem 1rem',
+                                    borderRadius: '8px',
+                                    marginBottom: '1.5rem',
+                                    border: '1px solid var(--border)'
+                                }}>
+                                    <div style={{fontFamily: 'IBM Plex Mono, monospace', color: 'var(--aricolor-blue)', fontWeight: '600', fontSize: '1rem'}}>
+                                        {clientesModalColor.clave}
+                                    </div>
+                                    <div style={{color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '0.25rem'}}>
+                                        {clientesModalColor.color}
+                                    </div>
+                                </div>
+                                
+                                {clientesModalColor.clientes.length === 0 ? (
+                                    <div style={{
+                                        textAlign: 'center',
+                                        padding: '3rem 2rem',
+                                        color: 'var(--text-muted)'
+                                    }}>
+                                        <div style={{fontSize: '3rem', marginBottom: '1rem'}}>📭</div>
+                                        <p style={{fontSize: '1.1rem', fontWeight: '500'}}>No hay clientes registrados</p>
+                                        <p style={{fontSize: '0.9rem', marginTop: '0.5rem'}}>
+                                            Ningún cliente tiene este color en su cartera actual
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <div style={{
+                                            marginBottom: '1rem',
+                                            padding: '0.75rem',
+                                            background: 'linear-gradient(135deg, var(--aricolor-blue), var(--aricolor-light-blue))',
+                                            color: 'white',
+                                            borderRadius: '8px',
+                                            fontWeight: '600',
+                                            textAlign: 'center'
+                                        }}>
+                                            {clientesModalColor.clientes.length} {clientesModalColor.clientes.length === 1 ? 'cliente' : 'clientes'}
+                                        </div>
+                                        
+                                        <div style={{maxHeight: '400px', overflowY: 'auto'}} className="scrollbar">
+                                            {clientesModalColor.clientes.map((cliente, idx) => (
+                                                <div key={idx} style={{
+                                                    background: 'var(--bg-white)',
+                                                    border: '1px solid var(--border)',
+                                                    borderRadius: '8px',
+                                                    padding: '1rem',
+                                                    marginBottom: '0.75rem',
+                                                    transition: 'all 0.2s',
+                                                    cursor: 'pointer'
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.borderColor = 'var(--aricolor-blue)';
+                                                    e.currentTarget.style.boxShadow = '0 2px 8px var(--shadow)';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.borderColor = 'var(--border)';
+                                                    e.currentTarget.style.boxShadow = 'none';
+                                                }}
+                                                >
+                                                    <div style={{
+                                                        fontWeight: '600',
+                                                        color: 'var(--text-dark)',
+                                                        fontSize: '1rem',
+                                                        marginBottom: '0.5rem'
+                                                    }}>
+                                                        🏢 {cliente.nombre}
+                                                    </div>
+                                                    <div style={{
+                                                        display: 'grid',
+                                                        gridTemplateColumns: 'repeat(2, 1fr)',
+                                                        gap: '0.5rem',
+                                                        fontSize: '0.85rem',
+                                                        color: 'var(--text-muted)'
+                                                    }}>
+                                                        <div>
+                                                            <span style={{fontWeight: '500'}}>📍 CP:</span> {cliente.cp || 'N/A'}
+                                                        </div>
+                                                        <div>
+                                                            <span style={{fontWeight: '500'}}>🌎 Zona:</span> {cliente.zona || 'N/A'}
+                                                        </div>
+                                                        <div>
+                                                            <span style={{fontWeight: '500'}}>🏭 Sector:</span> {cliente.sector || 'N/A'}
+                                                        </div>
+                                                        <div>
+                                                            <span style={{fontWeight: '500'}}>📦 Volumen:</span> {cliente.volumen}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
