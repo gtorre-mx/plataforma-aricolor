@@ -1,0 +1,787 @@
+{
+  "MB AM-1024-10": {
+    "hex": "#F3EC7A",
+    "pantone": "10065",
+    "nombre": "N/A"
+  },
+  "D21-005": {
+    "hex": "#F5EC5A",
+    "pantone": "101",
+    "nombre": "N/A"
+  },
+  "MB AM-1223-10": {
+    "hex": "#F5EC5A",
+    "pantone": "101",
+    "nombre": "N/A"
+  },
+  "MB AM-1629-10": {
+    "hex": "#FAE700",
+    "pantone": "102",
+    "nombre": "N/A"
+  },
+  "MB AM-1756-10": {
+    "hex": "#FAE700",
+    "pantone": "102",
+    "nombre": "N/A"
+  },
+  "D20-083": {
+    "hex": "#FEDF00",
+    "pantone": "Yellow",
+    "nombre": "N/A"
+  },
+  "P AM-0654-PO": {
+    "hex": "#FEDF00",
+    "pantone": "Yellow",
+    "nombre": "N/A"
+  },
+  "D20-209": {
+    "hex": "#FADC41",
+    "pantone": "115",
+    "nombre": "N/A"
+  },
+  "MB AM-1748-10": {
+    "hex": "#FECB00",
+    "pantone": "116",
+    "nombre": "N/A"
+  },
+  "MB AM-1376-10": {
+    "hex": "#F8DE6E",
+    "pantone": "120",
+    "nombre": "N/A"
+  },
+  "MB AM-1193-10": {
+    "hex": "#FADA63",
+    "pantone": "121",
+    "nombre": "N/A"
+  },
+  "MB AM 2173-10": {
+    "hex": "#FCD450",
+    "pantone": "122",
+    "nombre": "N/A"
+  },
+  "MB AM-1567-10": {
+    "hex": "#FFB612",
+    "pantone": "1235",
+    "nombre": "N/A"
+  },
+  "D18-193": {
+    "hex": "#FDE182",
+    "pantone": "12-0727 TPX",
+    "nombre": "N/A"
+  },
+  "MB AM-1657-10": {
+    "hex": "#FFA100",
+    "pantone": "137",
+    "nombre": "N/A"
+  },
+  "MB NR-1730-10": {
+    "hex": "#FFA952",
+    "pantone": "150",
+    "nombre": "N/A"
+  },
+  "MB NR-1605-10": {
+    "hex": "#FF9133",
+    "pantone": "1495",
+    "nombre": "N/A"
+  },
+  "MB NR-2123-10": {
+    "hex": "#FF6E00",
+    "pantone": "1505",
+    "nombre": "N/A"
+  },
+  "D19-088": {
+    "hex": "#E37222",
+    "pantone": "158",
+    "nombre": "N/A"
+  },
+  "MB BG-2121-4A": {
+    "hex": "#FFAA7B",
+    "pantone": "1555",
+    "nombre": "N/A"
+  },
+  "MB NR-2250-10": {
+    "hex": "#FF6D22",
+    "pantone": "1575",
+    "nombre": "N/A"
+  },
+  "D19-088E": {
+    "hex": "#D55C19",
+    "pantone": "1585",
+    "nombre": "N/A"
+  },
+  "MB NR-1665-10": {
+    "hex": "#FF7F45",
+    "pantone": "163",
+    "nombre": "N/A"
+  },
+  "D19-089 MB NR-1591-10": {
+    "hex": "#E05206",
+    "pantone": "165",
+    "nombre": "N/A"
+  },
+  "MB NR 2356-12": {
+    "hex": "#BD4F19",
+    "pantone": "166",
+    "nombre": "N/A"
+  },
+  "MB RS-1914-10": {
+    "hex": "#FF8F70",
+    "pantone": "1625",
+    "nombre": "N/A"
+  },
+  "MB NR-1152-10": {
+    "hex": "#DD4814",
+    "pantone": "1665",
+    "nombre": "N/A"
+  },
+  "MB NR 2345-12": {
+    "hex": "#DD4814",
+    "pantone": "1665",
+    "nombre": "N/A"
+  },
+  "MB NR 2001-12": {
+    "hex": "#F9461C",
+    "pantone": "172",
+    "nombre": "N/A"
+  },
+  "MB RS-2025-10": {
+    "hex": "#F8485E",
+    "pantone": "1785",
+    "nombre": "N/A"
+  },
+  "MB RJ 1351-10": {
+    "hex": "#CD202C",
+    "pantone": "1795",
+    "nombre": "N/A"
+  },
+  "D23-168": {
+    "hex": "#E00034",
+    "pantone": "185",
+    "nombre": "N/A"
+  },
+  "MB RJ 1500-10": {
+    "hex": "#C60C30",
+    "pantone": "186",
+    "nombre": "N/A"
+  },
+  "MB RJ-1835-10": {
+    "hex": "#A71930",
+    "pantone": "187",
+    "nombre": "N/A"
+  },
+  "MB RJ-1726-10": {
+    "hex": "#A71930",
+    "pantone": "187",
+    "nombre": "N/A"
+  },
+  "MB RS-1266-12": {
+    "hex": "#ef4a81",
+    "pantone": "1915",
+    "nombre": "N/A"
+  },
+  "D19-181B": {
+    "hex": "#F8C1B8",
+    "pantone": "2337",
+    "nombre": "N/A"
+  },
+  "D20-174": {
+    "hex": "#B71234",
+    "pantone": "200",
+    "nombre": "N/A"
+  },
+  "MB RJ-1637-10": {
+    "hex": "#A70240",
+    "pantone": "207",
+    "nombre": "N/A"
+  },
+  "MB RJ-1996-10": {
+    "hex": "#A70240",
+    "pantone": "207",
+    "nombre": "N/A"
+  },
+  "MB RS-2164-10": {
+    "hex": "#F77AB4",
+    "pantone": "211",
+    "nombre": "N/A"
+  },
+  "D19-136D": {
+    "hex": "#F77AB4",
+    "pantone": "211",
+    "nombre": "N/A"
+  },
+  "MB RS-2215-14": {
+    "hex": "#F04E98",
+    "pantone": "212",
+    "nombre": "N/A"
+  },
+  "MB RS-1489-10": {
+    "hex": "#AC145A",
+    "pantone": "215",
+    "nombre": "N/A"
+  },
+  "MB RS-2084-14": {
+    "hex": "#DF1995",
+    "pantone": "225",
+    "nombre": "N/A"
+  },
+  "MB RS-1993-14": {
+    "hex": "#C50084",
+    "pantone": "233",
+    "nombre": "N/A"
+  },
+  "MB RS-2221-14": {
+    "hex": "#BF2296",
+    "pantone": "240",
+    "nombre": "N/A"
+  },
+  "D21-043B": {
+    "hex": "#f9e27",
+    "pantone": "2002",
+    "nombre": "N/A"
+  },
+  "MB AM-1455-12": {
+    "hex": "#FFB20F",
+    "pantone": "2010",
+    "nombre": "N/A"
+  },
+  "MB AM-1707-EA": {
+    "hex": "#ED9B33",
+    "pantone": "2011",
+    "nombre": "N/A"
+  },
+  "MB AM-2043-4A": {
+    "hex": "#FF9800",
+    "pantone": "2013",
+    "nombre": "N/A"
+  },
+  "MB VT-1936-10": {
+    "hex": "#8E258D",
+    "pantone": "513",
+    "nombre": "N/A"
+  },
+  "MB AZ-1391-T4": {
+    "hex": "#489FDF",
+    "pantone": "2171",
+    "nombre": "N/A"
+  },
+  "MB AZ-2232-10": {
+    "hex": "#0076CE.",
+    "pantone": "2174",
+    "nombre": "N/A"
+  },
+  "MB AZ-1429-10": {
+    "hex": "#0084D4",
+    "pantone": "2184",
+    "nombre": "N/A"
+  },
+  "MB AZ-1314-10": {
+    "hex": "#007AC9",
+    "pantone": "3005",
+    "nombre": "N/A"
+  },
+  "MB AZ-1800-10": {
+    "hex": "#00A3E1",
+    "pantone": "2191",
+    "nombre": "N/A"
+  },
+  "MB AZ-1663-10": {
+    "hex": "#00A3E1",
+    "pantone": "2191",
+    "nombre": "N/A"
+  },
+  "MB AZ-2051-B0": {
+    "hex": "#0086d6",
+    "pantone": "2194",
+    "nombre": "N/A"
+  },
+  "MB -VT-1590-10": {
+    "hex": "#825DC7",
+    "pantone": "2088",
+    "nombre": "N/A"
+  },
+  "MB -VT-1590-11": {
+    "hex": "#7248BD.",
+    "pantone": "2089",
+    "nombre": "N/A"
+  },
+  "MB AZ 1429-10": {
+    "hex": "#0086d6",
+    "pantone": "2194",
+    "nombre": "N/A"
+  },
+  "MB AZ-2064-10": {
+    "hex": "#0069B1",
+    "pantone": "2196",
+    "nombre": "N/A"
+  },
+  "MB VR-2031-10": {
+    "hex": "#00BB31",
+    "pantone": "2271",
+    "nombre": "N/A"
+  },
+  "MB VR 2310-10": {
+    "hex": "#2cc84d",
+    "pantone": "2270",
+    "nombre": "N/A"
+  },
+  "MB VR 2224-10": {
+    "hex": "#2cc84d",
+    "pantone": "2270",
+    "nombre": "N/A"
+  },
+  "MB VR-2264-10": {
+    "hex": "#00B097",
+    "pantone": "2400",
+    "nombre": "N/A"
+  },
+  "MB VR-0647-12": {
+    "hex": "#007934",
+    "pantone": "356",
+    "nombre": "N/A"
+  },
+  "MB RS-1925-10": {
+    "hex": "#E7C1E3",
+    "pantone": "250",
+    "nombre": "N/A"
+  },
+  "MB VT-1719-14": {
+    "hex": "#6E267B",
+    "pantone": "259",
+    "nombre": "N/A"
+  },
+  "MB RS-2056-10": {
+    "hex": "#EFC5E5.",
+    "pantone": "2365",
+    "nombre": "N/A"
+  },
+  "MB VT-1733-10": {
+    "hex": "#490E6F",
+    "pantone": "2617",
+    "nombre": "N/A"
+  },
+  "D20-010L": {
+    "hex": "#8C6CD0",
+    "pantone": "265",
+    "nombre": "N/A"
+  },
+  "D19-223A": {
+    "hex": "#8C6CD0",
+    "pantone": "265",
+    "nombre": "N/A"
+  },
+  "MB VT-1755-10": {
+    "hex": "#3B0083",
+    "pantone": "2685",
+    "nombre": "N/A"
+  },
+  "MB VT-1343-B0": {
+    "hex": "#241773",
+    "pantone": "273",
+    "nombre": "N/A"
+  },
+  "MB AZ 0552-10": {
+    "hex": "#2526A9",
+    "pantone": "2736",
+    "nombre": "N/A"
+  },
+  "D20-051": {
+    "hex": "#031E2F",
+    "pantone": "296",
+    "nombre": "N/A"
+  },
+  "D20-113": {
+    "hex": "#5A85D7",
+    "pantone": "2718",
+    "nombre": "N/A"
+  },
+  "MB AZ-1385-10": {
+    "hex": "#0F4DBC",
+    "pantone": "2728",
+    "nombre": "N/A"
+  },
+  "MB AZ-1304-10": {
+    "hex": "#151F6D",
+    "pantone": "2756",
+    "nombre": "N/A"
+  },
+  "MB AZ-1737-30": {
+    "hex": "#001D77",
+    "pantone": "662",
+    "nombre": "N/A"
+  },
+  "MB AZ-1724-10": {
+    "hex": "#0073CF",
+    "pantone": "285",
+    "nombre": "N/A"
+  },
+  "MB AZ 1724-10": {
+    "hex": "#0073CF",
+    "pantone": "285",
+    "nombre": "N/A"
+  },
+  "MB AZ-2030-10": {
+    "hex": "#0073CF",
+    "pantone": "285",
+    "nombre": "N/A"
+  },
+  "MB AZ-2059-17": {
+    "hex": "#0073CF",
+    "pantone": "285",
+    "nombre": "N/A"
+  },
+  "D21-156": {
+    "hex": "#0046AD",
+    "pantone": "293",
+    "nombre": "N/A"
+  },
+  "MB AZ-1569-80": {
+    "hex": "#5BC6E8",
+    "pantone": "2985",
+    "nombre": "N/A"
+  },
+  "MB AZ-1603-10": {
+    "hex": "#3DB7E4",
+    "pantone": "298",
+    "nombre": "N/A"
+  },
+  "MB AZ 0525-10": {
+    "hex": "#00A1DE",
+    "pantone": "299",
+    "nombre": "N/A"
+  },
+  "MB AZ-XXXX-10 D19-172B": {
+    "hex": "#0065BD",
+    "pantone": "300",
+    "nombre": "N/A"
+  },
+  "MB AZ-0525-10": {
+    "hex": "#00A9E0",
+    "pantone": "2995",
+    "nombre": "N/A"
+  },
+  "MB AZ-1493-10": {
+    "hex": "#0097a9",
+    "pantone": "7711",
+    "nombre": "N/A"
+  },
+  "MB VR 2264-10": {
+    "hex": "#00B299",
+    "pantone": "3275",
+    "nombre": "N/A"
+  },
+  "MB VR-1767-10": {
+    "hex": "#009B3A",
+    "pantone": "355",
+    "nombre": "N/A"
+  },
+  "MB VR 1625-1A": {
+    "hex": "#00AF3F",
+    "pantone": "354",
+    "nombre": "N/A"
+  },
+  "MB VR 1643-10": {
+    "hex": "#009B3A",
+    "pantone": "355",
+    "nombre": "N/A"
+  },
+  "MB VR 1649-10": {
+    "hex": "#009B3A",
+    "pantone": "355",
+    "nombre": "N/A"
+  },
+  "MB VR-1643-10": {
+    "hex": "#007934",
+    "pantone": "356",
+    "nombre": "N/A"
+  },
+  "MB VR-1561-10": {
+    "hex": "#34B233",
+    "pantone": "361",
+    "nombre": "N/A"
+  },
+  "MB VR-1842-10": {
+    "hex": "#69BE28",
+    "pantone": "368",
+    "nombre": "N/A"
+  },
+  "MB VR-1705-10": {
+    "hex": "#C3E76F",
+    "pantone": "374",
+    "nombre": "N/A"
+  },
+  "D21-046B": {
+    "hex": "#A5ACAF",
+    "pantone": "429",
+    "nombre": "N/A"
+  },
+  "D19-182C": {
+    "hex": "#818A8F",
+    "pantone": "430",
+    "nombre": "N/A"
+  },
+  "MB GR-1931-32": {
+    "hex": "#37424A",
+    "pantone": "432",
+    "nombre": "N/A"
+  },
+  "D20-112": {
+    "hex": "#3C625",
+    "pantone": "Black 2",
+    "nombre": "N/A"
+  },
+  "D24-014A": {
+    "hex": "#B19401",
+    "pantone": "457",
+    "nombre": "N/A"
+  },
+  "D21-040A": {
+    "hex": "#BD9271",
+    "pantone": "4655",
+    "nombre": "N/A"
+  },
+  "D21-007C": {
+    "hex": "#60351D",
+    "pantone": "469",
+    "nombre": "N/A"
+  },
+  "D21-045A": {
+    "hex": "#435570",
+    "pantone": "4143",
+    "nombre": "N/A"
+  },
+  "MB BG-2192-30": {
+    "hex": "#D8C7B9",
+    "pantone": "4755",
+    "nombre": "N/A"
+  },
+  "D12-090A": {
+    "hex": "#5D3526",
+    "pantone": "477",
+    "nombre": "N/A"
+  },
+  "D21-041B": {
+    "hex": "#DAC9B5",
+    "pantone": "482",
+    "nombre": "N/A"
+  },
+  "MB VT-1997-12": {
+    "hex": "#593160",
+    "pantone": "519",
+    "nombre": "N/A"
+  },
+  "MB VT-1780-10": {
+    "hex": "#AD80D0",
+    "pantone": "528",
+    "nombre": "N/A"
+  },
+  "D19-179B": {
+    "hex": "#9EC3DE",
+    "pantone": "543",
+    "nombre": "N/A"
+  },
+  "MB VR 1783-10": {
+    "hex": "#23423A",
+    "pantone": "560",
+    "nombre": "N/A"
+  },
+  "D20-008": {
+    "hex": "#BFE3DA",
+    "pantone": "573",
+    "nombre": "N/A"
+  },
+  "MB VR-2119-10": {
+    "hex": "#ABB400",
+    "pantone": "583",
+    "nombre": "N/A"
+  },
+  "D23-171B": {
+    "hex": "#E9E69F",
+    "pantone": "608",
+    "nombre": "N/A"
+  },
+  "MB VR-1307-10": {
+    "hex": "#9DBCB0",
+    "pantone": "623",
+    "nombre": "N/A"
+  },
+  "MB AZ-2037-10": {
+    "hex": "#739ABC",
+    "pantone": "645",
+    "nombre": "N/A"
+  },
+  "D22-091": {
+    "hex": "#6F9AD3",
+    "pantone": "659",
+    "nombre": "N/A"
+  },
+  "MB AZ 2152-10": {
+    "hex": "#6F9AD3",
+    "pantone": "659",
+    "nombre": "N/A"
+  },
+  "MB AZ-1798-10": {
+    "hex": "#2A6EBB",
+    "pantone": "MB AZ-1314-10",
+    "nombre": "N/A"
+  },
+  "MB RS-1709-10": {
+    "hex": "#E3C8D8",
+    "pantone": "678",
+    "nombre": "N/A"
+  },
+  "MB NR-1959-80": {
+    "hex": "#EC7A08",
+    "pantone": "716",
+    "nombre": "N/A"
+  },
+  "MB BG-1862-10": {
+    "hex": "#D3A985",
+    "pantone": "728",
+    "nombre": "N/A"
+  },
+  "MB BG-1812-30": {
+    "hex": "#DDB99A",
+    "pantone": "727",
+    "nombre": "N/A"
+  },
+  "MB CF-1204-10": {
+    "hex": "#723D14",
+    "pantone": "731",
+    "nombre": "N/A"
+  },
+  "MB BG-1935-80": {
+    "hex": "#F1E3BB",
+    "pantone": "7401",
+    "nombre": "N/A"
+  },
+  "D21-114": {
+    "hex": "#E8CE79",
+    "pantone": "7403",
+    "nombre": "N/A"
+  },
+  "MB AM-2107-10": {
+    "hex": "#ECC200",
+    "pantone": "7405",
+    "nombre": "N/A"
+  },
+  "MB AM 1830-10": {
+    "hex": "#ECC200",
+    "pantone": "7405",
+    "nombre": "N/A"
+  },
+  "MB AM-0513-10": {
+    "hex": "#EBB700",
+    "pantone": "7406",
+    "nombre": "N/A"
+  },
+  "MB AM-1264-D0": {
+    "hex": "#EBB700",
+    "pantone": "7406",
+    "nombre": "N/A"
+  },
+  "MB AM-1037-10": {
+    "hex": "#F2AF00",
+    "pantone": "7408",
+    "nombre": "N/A"
+  },
+  "D16-084C": {
+    "hex": "#EEAF00",
+    "pantone": "7409",
+    "nombre": "N/A"
+  },
+  "MB AM-1334-10": {
+    "hex": "#EEAF00",
+    "pantone": "7409",
+    "nombre": "N/A"
+  },
+  "MB RJ-1205-10": {
+    "hex": "#96172E",
+    "pantone": "7427",
+    "nombre": "N/A"
+  },
+  "MB RJ 1996-10": {
+    "hex": "#96172E",
+    "pantone": "7427",
+    "nombre": "N/A"
+  },
+  "MB AZ-16-99-10": {
+    "hex": "#0089C4",
+    "pantone": "7460",
+    "nombre": "N/A"
+  },
+  "MB AZ-1980-10": {
+    "hex": "#00B3BE",
+    "pantone": "7466",
+    "nombre": "N/A"
+  },
+  "D23-179A": {
+    "hex": "#005157",
+    "pantone": "7476",
+    "nombre": "N/A"
+  },
+  "D19-180A": {
+    "hex": "#BDE9C9",
+    "pantone": "2253",
+    "nombre": "N/A"
+  },
+  "MB VT-2199-30": {
+    "hex": "#6B3077",
+    "pantone": "7663",
+    "nombre": "N/A"
+  },
+  "MB VT-1850-10": {
+    "hex": "#6B3077",
+    "pantone": "7663",
+    "nombre": "N/A"
+  },
+  "MB VT-2231-10": {
+    "hex": "#523178",
+    "pantone": "7680",
+    "nombre": "N/A"
+  },
+  "D21-057 \"B\" Y \"M1\"": {
+    "hex": "#9DB0C6",
+    "pantone": "7681",
+    "nombre": "N/A"
+  },
+  "MB AZ-1865-10": {
+    "hex": "#00A7B5",
+    "pantone": "7710",
+    "nombre": "N/A"
+  },
+  "MB VR-2036-17": {
+    "hex": "#00A7B5",
+    "pantone": "7710",
+    "nombre": "N/A"
+  },
+  "MB AZ-1865-11": {
+    "hex": "#0097a9",
+    "pantone": "7711",
+    "nombre": "N/A"
+  },
+  "MB VR-0645-10": {
+    "hex": "#007A3E",
+    "pantone": "7732",
+    "nombre": "N/A"
+  },
+  "MB VR 1711-10": {
+    "hex": "#007A3E",
+    "pantone": "7732",
+    "nombre": "N/A"
+  },
+  "MB VR-2046-10": {
+    "hex": "#007A3E",
+    "pantone": "7732",
+    "nombre": "N/A"
+  },
+  "MB VR-1946-10": {
+    "hex": "#7041",
+    "pantone": "7733",
+    "nombre": "N/A"
+  },
+  "MB VR 2265-10": {
+    "hex": "#7041",
+    "pantone": "7733",
+    "nombre": "N/A"
+  }
+}
