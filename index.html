@@ -1786,7 +1786,16 @@
             font-weight: 700;
             margin-left: 8px;
         }
+        
+        /* Estilos para Leaflet */
+        .leaflet-container {
+            font-family: 'Outfit', sans-serif;
+        }
     </style>
+    
+    <!-- Leaflet para mapa interactivo -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <div id="root"></div>
@@ -3346,6 +3355,75 @@
                 }
             }, [selectedCliente]);
 
+            // useEffect para inicializar mapa con pines
+            useEffect(() => {
+                if (activeTab === 'maps' && typeof L !== 'undefined') {
+                    // Esperar un poco para que el DOM esté listo
+                    setTimeout(() => {
+                        const mapContainer = document.getElementById('clientesMap');
+                        if (!mapContainer) return;
+
+                        // Limpiar mapa existente
+                        if (mapContainer._leaflet_id) {
+                            mapContainer._leaflet_id = undefined;
+                        }
+                        mapContainer.innerHTML = '';
+
+                        // Crear mapa centrado en CDMX
+                        const map = L.map('clientesMap').setView([19.4326, -99.1332], 11);
+
+                        // Agregar tiles de OpenStreetMap
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '© OpenStreetMap contributors',
+                            maxZoom: 19
+                        }).addTo(map);
+
+                        // Filtrar clientes según vendedor seleccionado
+                        const clientesFiltrados = filterVendedorMaps === 'todos' 
+                            ? clientes 
+                            : clientes.filter(c => getClienteVendedor(c) === filterVendedorMaps);
+
+                        // Agregar marcadores para clientes con coordenadas
+                        let markersAdded = 0;
+                        clientesFiltrados.forEach(cliente => {
+                            const coords = clientesCoordenadas[cliente.nombre];
+                            if (coords && coords.lat && coords.lng) {
+                                const vendedor = getClienteVendedor(cliente);
+                                const color = vendedor ? getVendedorColor(vendedor) : '#6b7280';
+                                
+                                // Crear marcador circular
+                                const marker = L.circleMarker([coords.lat, coords.lng], {
+                                    radius: 10,
+                                    fillColor: color,
+                                    color: '#fff',
+                                    weight: 3,
+                                    opacity: 1,
+                                    fillOpacity: 0.8
+                                }).addTo(map);
+
+                                // Popup con información
+                                marker.bindPopup(`
+                                    <div style="font-family: 'Outfit', sans-serif; min-width: 200px;">
+                                        <div style="font-weight: 700; font-size: 15px; color: ${color}; margin-bottom: 8px;">
+                                            ${cliente.nombre}
+                                        </div>
+                                        <div style="font-size: 13px; color: #666; margin-bottom: 4px;">
+                                            📍 ${cliente.direccion || 'N/A'}
+                                        </div>
+                                        ${cliente.zona ? `<div style="font-size: 12px; color: #999;">🏙️ ${cliente.zona}</div>` : ''}
+                                        ${vendedor ? `<div style="font-size: 12px; color: ${color}; margin-top: 4px; font-weight: 600;">👤 ${vendedor}</div>` : ''}
+                                    </div>
+                                `);
+
+                                markersAdded++;
+                            }
+                        });
+
+                        console.log(`🗺️ Mapa inicializado con ${markersAdded} marcadores`);
+                    }, 100);
+                }
+            }, [activeTab, filterVendedorMaps, clientes, clientesCoordenadas]);
+
             const filteredClientes = clientes.filter(c => {
                 const matchesSearch = !searchTerm || 
                     (c.nombre && String(c.nombre).toLowerCase().includes(searchTerm.toLowerCase())) ||
@@ -4541,14 +4619,7 @@
                         </div>
 
                         <div className="map-container" id="clientesMap">
-                            <iframe
-                                width="100%"
-                                height="100%"
-                                frameBorder="0"
-                                style={{border: 0}}
-                                src={`https://www.google.com/maps/embed/v1/view?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&center=19.4326,-99.1332&zoom=11`}
-                                allowFullScreen
-                            />
+                            {/* Mapa se inicializa con Leaflet via useEffect */}
                         </div>
 
                         <div style={{marginTop: '1.5rem'}}>
